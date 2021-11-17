@@ -22,6 +22,7 @@
     "@mui/material": "^5.1.0",
     "@mui/system": "^5.1.0",
     "@mui/x-data-grid": "^4.0.2",
+    "axios": "^0.24.0",
     "cldr-data": "^36.0.0",
     "data-fns": "^0.1.8",
     "fullcalendar": "^5.10.1",

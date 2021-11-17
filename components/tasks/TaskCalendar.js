@@ -17,33 +17,15 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const events = [
-  {
-    title: "Big Meeting",
-    allDay: true,
-    start: new Date(2021, 12, 0),
-    end: new Date(2021, 12, 0),
-  },
-  {
-    title: "Vacation",
-    start: new Date(2021, 11, 7),
-    end: new Date(2021, 11, 10),
-  },
-  {
-    title: "Conference",
-    start: new Date(2021, 11, 20),
-    end: new Date(2021, 11, 23),
-  },
-];
 
-function TaskCalendar() {
+function TaskCalendar(props) {
   return (
     <div>
       <Calendar
         localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
+        events={props.events}
+        startAccessor="startDate"
+        endAccessor="endDate"
         style={{ height: 500, margin: "50px" }}
       />
     </div>
