@@ -47,7 +47,7 @@ export default function MainNavBar() {
               component="div"
               sx={{ flexGrow: 1, pl: 10 }}
             >
-              <Link href="./">PacsMan</Link>
+              <Link href="/">PacsMan</Link>
             </Typography>
             <Button color="inherit">Login</Button>
             <Menu

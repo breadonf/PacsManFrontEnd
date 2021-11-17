@@ -8,7 +8,7 @@ import { padding } from "@mui/system";
 
 export default function HelloBox() {
   return (
-    <Grid Container spacing={2}>
+    <Grid container spacing={2}>
       <Grid item xs={12} sx={{p:2}}>
         <Card raised>
           <CardContent>

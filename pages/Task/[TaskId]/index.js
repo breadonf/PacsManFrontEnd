@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import TaskDetail from "../../components/tasks/TaskDetail";
+import TaskDetail from "../../../components/tasks/TaskDetail";
 
 function Details() {
   const router = useRouter();

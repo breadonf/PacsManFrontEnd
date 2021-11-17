@@ -81,6 +81,7 @@ export default function TaskForm(props) {
               labelId="select-status"
               id="status"
               inputRef={statusInputRef}
+              defaultValue={'Pending'}
             >
               <MenuItem value={"Pending"}>Pending</MenuItem>
               <MenuItem value={"InProgress"}>In Progress</MenuItem>
@@ -114,6 +115,7 @@ export default function TaskForm(props) {
               labelId="select-category"
               id="category"
               inputRef={categoryInputRef}
+              defaultValue={"it support"}
             >
               <MenuItem value={"it support"}>IT support</MenuItem>
               <MenuItem value={"error handling"}>Error handling</MenuItem>
@@ -160,6 +162,7 @@ export default function TaskForm(props) {
               <DatePicker
                 label="End Date"
                 value={selectedEndDate}
+                minDate={selectedStartDate}
                 onChange={(newEndDate) => {
                   setEndDate(newEndDate);
                 }}
@@ -176,6 +179,7 @@ export default function TaskForm(props) {
               <DatePicker
                 label="Deadline"
                 value={selectedDeadline}
+                minDate={selectedStartDate}
                 onChange={(newDeadline) => {
                   setDeadline(newDeadline);
                 }}
@@ -194,7 +198,9 @@ export default function TaskForm(props) {
               labelId="select-location"
               id="location"
               inputRef={locationInputRef}
+              defaultValue={'PACS'}
             >
+              <MenuItem value={"PACS"}>PACS Room</MenuItem>
               <MenuItem value={"XR"}>General X-Ray Room</MenuItem>
               <MenuItem value={"US"}>Ultrasound Exam Room</MenuItem>
               <MenuItem value={"CT"}>Computed Tomography Exam Room</MenuItem>
