@@ -70,7 +70,7 @@ export default function TaskForm(props) {
       >
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
-          <FormControl fullWidth>
+          <FormControl required fullWidth>
             <Inputlabel id="select-status">Status</Inputlabel>
             <Select
               required
@@ -79,6 +79,7 @@ export default function TaskForm(props) {
               inputRef={statusInputRef}
             >
               <MenuItem value={"Pending"}>Pending</MenuItem>
+              <MenuItem value={"Urgent"}>Urgent</MenuItem>
               <MenuItem value={"InProgress"}>In Progress</MenuItem>
               <MenuItem value={"Completed"}>Completed</MenuItem>
               <MenuItem value={"Failed"}>Failed</MenuItem>
@@ -88,7 +89,7 @@ export default function TaskForm(props) {
         <Grid item xs={1}></Grid>
         <Grid item xs={1}></Grid>
         <Grid item xs={10}>
-          <FormControl fullWidth>
+          <FormControl required fullWidth>
             <Inputlabel id="select-category">Category</Inputlabel>
             <Select
               required
@@ -107,6 +108,7 @@ export default function TaskForm(props) {
                 external film handling
               </MenuItem>
               <MenuItem value={"export local film"}>export local film</MenuItem>
+              <MenuItem value={"others"}>others</MenuItem>
             </Select>
           </FormControl>
         </Grid>
