@@ -15,7 +15,8 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import RotateLeftIcon from "@mui/icons-material/RotateLeft";
-import { MenuItem, Select } from "@mui/material";
+import { FormControlLabel, MenuItem, Select } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
 
 export default function TaskForm(props) {
   const statusInputRef = useRef();
@@ -25,6 +26,7 @@ export default function TaskForm(props) {
   const detailsInputRef = useRef();
   const issuerInputRef = useRef();
   const handlerInputRef = useRef();
+  const [selectedUrgent, setUrgent] = useState(true);
   const [selectedStartDate, setStartDate] = useState(null);
   const [selectedEndDate, setEndDate] = useState(null);
   const [selectedDeadline, setDeadline] = useState(null);
@@ -35,6 +37,7 @@ export default function TaskForm(props) {
     const enteredStatus = statusInputRef.current.value;
     const enteredTitle = titleInputRef.current.value;
     const enteredCategory = categoryInputRef.current.value;
+    const enteredUrgent = selectedUrgent;
     const enteredStartDate = selectedStartDate;
     const enteredEndDate = selectedEndDate;
     const enteredDeadline = selectedDeadline;
@@ -47,6 +50,7 @@ export default function TaskForm(props) {
       status: enteredStatus,
       title: enteredTitle,
       category: enteredCategory,
+      urgent: enteredUrgent,
       startDate: enteredStartDate,
       endDate: enteredEndDate,
       deadline: enteredDeadline,
@@ -69,7 +73,7 @@ export default function TaskForm(props) {
         rowSpacing={5}
       >
         <Grid item xs={1}></Grid>
-        <Grid item xs={10}>
+        <Grid item xs={7}>
           <FormControl required fullWidth>
             <Inputlabel id="select-status">Status</Inputlabel>
             <Select
@@ -79,11 +83,25 @@ export default function TaskForm(props) {
               inputRef={statusInputRef}
             >
               <MenuItem value={"Pending"}>Pending</MenuItem>
-              <MenuItem value={"Urgent"}>Urgent</MenuItem>
               <MenuItem value={"InProgress"}>In Progress</MenuItem>
               <MenuItem value={"Completed"}>Completed</MenuItem>
               <MenuItem value={"Failed"}>Failed</MenuItem>
             </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={3}>
+          <FormControl required fullWidth>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={selectedUrgent}
+                  onChange={(selectedUrgency) => {
+                    setUrgent(selectedUrgency.target.checked);
+                  }}
+                />
+              }
+              label="Urgent"
+            />
           </FormControl>
         </Grid>
         <Grid item xs={1}></Grid>
