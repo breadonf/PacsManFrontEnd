@@ -49,7 +49,9 @@ export default function MainNavBar() {
             >
               <Link href="/">PacsMan</Link>
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit">
+              <Link href="/Login">Login</Link>
+              </Button>
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}

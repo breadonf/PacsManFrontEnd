@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button"
 import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
+import axios from "axios"
 
 export default function LoginForm(props) {
   const [newUserName, setUserName] = useState();
@@ -17,15 +18,15 @@ export default function LoginForm(props) {
     const enteredPassword = newPassword;
 
     const loginData = {
-      Username: enteredUserName,
-      Password: enteredPassword,
+      username: enteredUserName,
+      password: enteredPassword,
     };
 
     props.onLogin(loginData);
   }
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} alignContent="center" justifyContent="center">
       <Grid item>
         <Box component="form">
           <Grid item xs={8}>
