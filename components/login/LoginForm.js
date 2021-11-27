@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
-import Button from "@mui/material/Button"
+import Button from "@mui/material/Button";
 import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import axios from "axios"
+import InputLabel from "@mui/material/InputLabel";
 
 export default function LoginForm(props) {
   const [newUserName, setUserName] = useState();
@@ -29,12 +31,13 @@ export default function LoginForm(props) {
     <Grid container spacing={2} alignContent="center" justifyContent="center">
       <Grid item>
         <Box component="form">
-          <Grid item xs={8}>
+          <Grid item xs={10} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
+              <InputLabel>User Name</InputLabel>
               <Input
                 type="text"
                 id="username"
-                value={(newUserName)}
+                value={newUserName}
                 onChange={(event) => {
                   setUserName(event.target.value);
                 }}
@@ -43,8 +46,9 @@ export default function LoginForm(props) {
               </Input>
             </FormControl>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xs={10} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
+              <InputLabel>Password</InputLabel>
               <Input
                 type="password"
                 id="password"
@@ -57,7 +61,7 @@ export default function LoginForm(props) {
               </Input>
             </FormControl>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={3} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
               <Button
                 variant="contained"
@@ -69,6 +73,11 @@ export default function LoginForm(props) {
                 Submit
               </Button>
             </FormControl>
+          </Grid>
+          <Grid item xs={3} sx={{ p: 2, m: 2 }}>
+            <Link href="/">
+              <Button variant="contained" fullWidth>Back to Home</Button>
+            </Link>
           </Grid>
         </Box>
       </Grid>
