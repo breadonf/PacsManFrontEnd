@@ -13,9 +13,18 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@material-ui/core/Divider";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 export default function MainNavBar() {
+  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -51,9 +60,10 @@ export default function MainNavBar() {
             </Typography>
             <Button color="inherit">
               <Link href="/Login">Login</Link>
-              </Button>
+            </Button>
             <Menu
               id="menu-appbar"
+              sx={{minHeight: 200}}
               anchorEl={anchorEl}
               anchorOrigin={{ vertical: "top", horizontal: "left" }}
               keepMounted
@@ -77,11 +87,19 @@ export default function MainNavBar() {
                 <Link href="/Form">Add Task</Link>
               </MenuItem>
               <Divider />
-              <MenuItem onClick={handleClose}>
-                <ListItemIcon>
-                  <LogoutOutlinedIcon />
-                </ListItemIcon>
-                <Typography>Logout</Typography>
+              <MenuItem>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        checked={auth}
+                        onChange={handleChange}
+                        aria-label="login switch"
+                      />
+                    }
+                    label={auth ? "logout" : "login"}
+                  />
+                </FormGroup>
               </MenuItem>
             </Menu>
           </Toolbar>
