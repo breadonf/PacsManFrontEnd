@@ -14,7 +14,6 @@ const TaskItems = (props) => {
   }
 
   return (
-    <Card raised xs={{ p: 2, m: 2 }}>
       <CardActionArea xs={{ m: 2 }} onClick={showDetailsHandler}>
         <Grid item xs={10}>
           <Typography variant="h5" component="div">
@@ -54,8 +53,8 @@ const TaskItems = (props) => {
             {props.details}
           </Typography>
         </Box>
+        <br></br>
       </CardActionArea>
-    </Card>
   );
 };
 

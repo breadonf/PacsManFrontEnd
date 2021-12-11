@@ -5,14 +5,15 @@ import TaskDetail from "../../../components/tasks/TaskDetail";
 function Details() {
   const router = useRouter();
 
-  const eventId = router.query.eventId;
+  const TaskId = router.query.TaskId;
 
   //send a request to backendAPi
-  //fetch event with taskId
+  //fetch task with taskId
 
   return (
     <TaskDetail
       status="Completed"
+      id="t5"
       title="task5"
       startDate="11-11-2021"
       endDate="12-11-2021"

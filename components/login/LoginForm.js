@@ -30,7 +30,7 @@ export default function LoginForm(props) {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Box component="form">
-          <Grid item xs={10} sx={{ p: 2, m: 2 }}>
+          <Grid item xs={12} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
               <InputLabel>User Name</InputLabel>
               <Input
@@ -45,7 +45,7 @@ export default function LoginForm(props) {
               </Input>
             </FormControl>
           </Grid>
-          <Grid item xs={10} sx={{ p: 2, m: 2 }}>
+          <Grid item xs={12} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
               <InputLabel>Password</InputLabel>
               <Input
@@ -60,23 +60,27 @@ export default function LoginForm(props) {
               </Input>
             </FormControl>
           </Grid>
-          <Grid item xs={3} sx={{ p: 2, m: 2 }}>
-            <FormControl fullWidth>
-              <Button
-                variant="contained"
-                type="submit"
-                aria-label="submit"
-                endIcon={<SendAndArchiveIcon />}
-                onClick={submitHandler}
-              >
-                Submit
-              </Button>
-            </FormControl>
-          </Grid>
-          <Grid item xs={3} sx={{ p: 2, m: 2 }}>
-            <Link href="/">
-              <Button variant="contained" fullWidth>Back to Home</Button>
-            </Link>
+          <Grid container justifyContent="center">
+            <Grid item xs={3} sx={{ p: 2, m: 2 }}>
+              <FormControl fullWidth>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  aria-label="submit"
+                  endIcon={<SendAndArchiveIcon />}
+                  onClick={submitHandler}
+                >
+                  Submit
+                </Button>
+              </FormControl>
+            </Grid>
+            <Grid item xs={3} sx={{ p: 2, m: 2 }}>
+              <Link href="/">
+                <Button variant="contained" fullWidth>
+                  Back to Home
+                </Button>
+              </Link>
+            </Grid>
           </Grid>
         </Box>
       </Grid>

@@ -3,18 +3,18 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import TaskItems from "./TaskItems";
 import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 
 const TaskList = (props) => {
   return (
-    <Grid item xs={12} sx={{p:2}}>
+    <Grid xs={12} spacing={2}>
       <Card raised>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{p:2}}>
           <Typography variant="h4">Recent tasks</Typography>
         </Grid>
-        <Card raised sx={{ display: "inline" }}>
-          <CardContent>
+        <Grid item sx={{pb:2}}>
+        <Card raised sx={{ display: "inline", pb:2}}>
+          <CardContent style={{border:'1px solid black'}}>
             {props.tasks.map((task) => (
               <TaskItems
                 key={task.id}
@@ -28,6 +28,7 @@ const TaskList = (props) => {
             ))}
           </CardContent>
         </Card>
+        </Grid>
       </Card>
     </Grid>
   );
