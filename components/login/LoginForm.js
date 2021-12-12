@@ -10,6 +10,7 @@ import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import InputLabel from "@mui/material/InputLabel";
 
 export default function LoginForm(props) {
+<<<<<<< HEAD
   const [newUserName, setUserName] = useState();
   const [newPassword, setPassword] = useState();
   state = { err: "" };
@@ -22,10 +23,18 @@ export default function LoginForm(props) {
     const enteredUserName = newUserName;
     const enteredPassword = newPassword;
 
+=======
+  const [userName, setUserName] = useState();
+  const [password, setPassword] = useState();
+
+  function submitHandler(event) {
+    event.preventDefault();
+>>>>>>> 327bf4f6923375da2e660b573b7cdfdb4285a2f3
     const loginData = {
       username: enteredUserName,
       password: enteredPassword,
     };
+<<<<<<< HEAD
 
     props
       .onLogin(loginData)
@@ -43,6 +52,22 @@ export default function LoginForm(props) {
 
   // const {error} = this.state;
 
+=======
+    props.onLogin(loginData);
+  }
+  const handleChange = ({ target }) => {
+    switch(target.id){
+        case "username":
+          setUserName(target.value);
+            break;
+        case "password":
+          setPassword(target.value);
+            break;
+        default:
+            return;
+    }
+}
+>>>>>>> 327bf4f6923375da2e660b573b7cdfdb4285a2f3
   return (
     <Grid container spacing={2} alignContent="center" justifyContent="center">
       <Grid item>

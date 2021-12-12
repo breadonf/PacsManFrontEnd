@@ -18,6 +18,7 @@ import Switch from "@mui/material/Switch";
 export default function MainNavBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [ isLogggedIn, setIsLoggedIn ] = React.useState(false)
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
