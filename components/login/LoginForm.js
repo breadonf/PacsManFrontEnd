@@ -10,64 +10,58 @@ import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import InputLabel from "@mui/material/InputLabel";
 
 export default function LoginForm(props) {
-<<<<<<< HEAD
   const [newUserName, setUserName] = useState();
   const [newPassword, setPassword] = useState();
-  state = { err: "" };
+  const [Error, setError] = useState();
 
   const router = useRouter();
 
   function submitHandler(event) {
     event.preventDefault();
-    this.setState({ error: "" });
+    setError("");
     const enteredUserName = newUserName;
     const enteredPassword = newPassword;
 
-=======
-  const [userName, setUserName] = useState();
-  const [password, setPassword] = useState();
+   //  const [userName, setUserName] = useState();
+    // const [password, setPassword] = useState();
 
-  function submitHandler(event) {
-    event.preventDefault();
->>>>>>> 327bf4f6923375da2e660b573b7cdfdb4285a2f3
-    const loginData = {
-      username: enteredUserName,
-      password: enteredPassword,
-    };
-<<<<<<< HEAD
+    function submitHandler(event) {
+      event.preventDefault();
+      const loginData = {
+        username: enteredUserName,
+        password: enteredPassword,
+      };
 
-    props
-      .onLogin(loginData)
-      .then(() => {
-        router.push("./");
-      })
-      .catch(this.showError);
-  }
-
-  showError = (err) => {
-    console.error(err);
-    const error = (err.response && err.response.data) || err.message;
-    this.setState({ error });
-  };
-
-  // const {error} = this.state;
-
-=======
-    props.onLogin(loginData);
-  }
-  const handleChange = ({ target }) => {
-    switch(target.id){
-        case "username":
-          setUserName(target.value);
-            break;
-        case "password":
-          setPassword(target.value);
-            break;
-        default:
-            return;
+      props
+        .onLogin(loginData)
+        .then(() => {
+          router.push("./");
+        })
+        .catch(this.showError);
     }
-}
->>>>>>> 327bf4f6923375da2e660b573b7cdfdb4285a2f3
+
+    const showError = (err) => {
+      console.error(err);
+      const error = (err.response && err.response.data) || err.message;
+      setError({ error });
+    };
+
+    // const {error} = this.state;
+
+   // props.onLogin(loginData);
+  }
+/*  const handleChange = ({ target }) => {
+    switch (target.id) {
+      case "username":
+        setUserName(target.value);
+        break;
+      case "password":
+        setPassword(target.value);
+        break;
+      default:
+        return;
+    }
+  }; */
   return (
     <Grid container spacing={2} alignContent="center" justifyContent="center">
       <Grid item>
@@ -79,7 +73,7 @@ export default function LoginForm(props) {
                 required
                 type="text"
                 id="username"
-                // value={newUserName}
+                value={newUserName}
                 onChange={(event) => {
                   setUserName(event.target.value);
                 }}
@@ -95,7 +89,7 @@ export default function LoginForm(props) {
                 required
                 type="password"
                 id="password"
-                // value={newPassword}
+                value={newPassword}
                 onChange={(event) => {
                   setPassword(event.target.value);
                 }}
@@ -124,7 +118,7 @@ export default function LoginForm(props) {
               </Link>
             </Grid>
           </Grid>
-          {error && <div>{error}</div>}
+          {Error && <div>{Error}</div>}
         </Box>
       </Grid>
     </Grid>
