@@ -6,7 +6,6 @@ import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
 import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
-import axios from "axios"
 import InputLabel from "@mui/material/InputLabel";
 
 export default function LoginForm(props) {
@@ -35,9 +34,10 @@ export default function LoginForm(props) {
             <FormControl fullWidth>
               <InputLabel>User Name</InputLabel>
               <Input
+                required
                 type="text"
                 id="username"
-                value={newUserName}
+                // value={newUserName}
                 onChange={(event) => {
                   setUserName(event.target.value);
                 }}
@@ -50,9 +50,10 @@ export default function LoginForm(props) {
             <FormControl fullWidth>
               <InputLabel>Password</InputLabel>
               <Input
+                required
                 type="password"
                 id="password"
-                value={newPassword}
+                // value={newPassword}
                 onChange={(event) => {
                   setPassword(event.target.value);
                 }}
@@ -77,9 +78,7 @@ export default function LoginForm(props) {
             </Grid>
             <Grid item xs={6} sx={{ p: 2, m: 2 }}>
               <Link href="/">
-                <Button variant="contained">
-                  Back to Home
-                </Button>
+                <Button variant="contained">Back to Home</Button>
               </Link>
             </Grid>
           </Grid>
