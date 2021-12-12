@@ -63,7 +63,7 @@ export default function LoginForm(props) {
           </Grid>
           <Grid container justifyContent="center">
             <Grid item xs={3} sx={{ p: 2, m: 2 }}>
-              <FormControl fullWidth>
+              <FormControl>
                 <Button
                   variant="contained"
                   type="submit"
@@ -75,9 +75,9 @@ export default function LoginForm(props) {
                 </Button>
               </FormControl>
             </Grid>
-            <Grid item xs={3} sx={{ p: 2, m: 2 }}>
+            <Grid item xs={6} sx={{ p: 2, m: 2 }}>
               <Link href="/">
-                <Button variant="contained" fullWidth>
+                <Button variant="contained">
                   Back to Home
                 </Button>
               </Link>

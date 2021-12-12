@@ -7,27 +7,29 @@ import CardContent from "@mui/material/CardContent";
 
 const TaskList = (props) => {
   return (
-    <Grid xs={12} spacing={2}>
+    <Grid item xs={12}>
       <Card raised>
-        <Grid item xs={12} sx={{p:2}}>
+        <Grid item xs={12} sx={{ p: 2 }}>
           <Typography variant="h4">Recent tasks</Typography>
         </Grid>
-        <Grid item sx={{pb:2}}>
-        <Card raised sx={{ display: "inline", pb:2}}>
-          <CardContent style={{border:'1px solid black'}}>
-            {props.tasks.map((task) => (
-              <TaskItems
-                key={task.id}
-                id={task.id}
-                status={task.status}
-                title={task.title}
-                deadline={task.deadline}
-                issuer={task.issuer}
-                handler={task.handler}
-              />
-            ))}
-          </CardContent>
-        </Card>
+        <Grid item sx={{ pb: 2 }}>
+          <Card raised sx={{ display: "inline", pb: 2 }}>
+            <CardContent style={{ border: "1px solid lightgrey" }}>
+              {props.tasks.map((task) => (
+                <Card variant="outlined">
+                  <TaskItems
+                    key={task.id}
+                    id={task.id}
+                    status={task.status}
+                    title={task.title}
+                    deadline={task.deadline}
+                    issuer={task.issuer}
+                    handler={task.handler}
+                  />
+                </Card>
+              ))}
+            </CardContent>
+          </Card>
         </Grid>
       </Card>
     </Grid>
