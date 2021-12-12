@@ -10,7 +10,7 @@ const TaskItems = (props) => {
   const router = useRouter();
 
   function showDetailsHandler() {
-    router.push("/task/" + props.id);
+    router.push("./Task/" + props.id);
   }
 
   return (

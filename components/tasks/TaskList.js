@@ -13,7 +13,7 @@ const TaskList = (props) => {
           <Typography variant="h4">Recent tasks</Typography>
         </Grid>
         <Grid item sx={{ pb: 2 }}>
-          <Card raised sx={{ display: "inline", pb: 2 }}>
+          <Card raised sx={{ pb: 2 }}>
             <CardContent style={{ border: "1px solid lightgrey" }}>
               {props.tasks.map((task) => (
                 <Card variant="outlined">
