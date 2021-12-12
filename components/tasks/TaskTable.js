@@ -142,7 +142,7 @@ const columns = [
 
 export default function TaskTable() {
   return (
-    <Grid container xs={12}>
+    <Grid container>
       <Grid item xs={12} sx={{minHeight:500}}>
         <Card component="div" raised sx={{height: '100%'}}>
           <DataGrid

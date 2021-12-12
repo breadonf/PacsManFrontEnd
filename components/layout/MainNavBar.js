@@ -10,13 +10,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@material-ui/core/Divider";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
 export default function MainNavBar() {
   const [auth, setAuth] = React.useState(true);
@@ -63,7 +60,7 @@ export default function MainNavBar() {
             </Button>
             <Menu
               id="menu-appbar"
-              sx={{minHeight: 200}}
+              sx={{minHeight: 200, display:'block'}}
               anchorEl={anchorEl}
               anchorOrigin={{ vertical: "top", horizontal: "left" }}
               keepMounted

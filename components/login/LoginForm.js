@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -11,10 +12,13 @@ import InputLabel from "@mui/material/InputLabel";
 export default function LoginForm(props) {
   const [newUserName, setUserName] = useState();
   const [newPassword, setPassword] = useState();
+  state = { err: "" };
+
+  const router = useRouter();
 
   function submitHandler(event) {
     event.preventDefault();
-
+    this.setState({ error: "" });
     const enteredUserName = newUserName;
     const enteredPassword = newPassword;
 
@@ -23,8 +27,21 @@ export default function LoginForm(props) {
       password: enteredPassword,
     };
 
-    props.onLogin(loginData);
+    props
+      .onLogin(loginData)
+      .then(() => {
+        router.push("./");
+      })
+      .catch(this.showError);
   }
+
+  showError = (err) => {
+    console.error(err);
+    const error = (err.response && err.response.data) || err.message;
+    this.setState({ error });
+  };
+
+  // const {error} = this.state;
 
   return (
     <Grid container spacing={2} alignContent="center" justifyContent="center">
@@ -82,6 +99,7 @@ export default function LoginForm(props) {
               </Link>
             </Grid>
           </Grid>
+          {error && <div>{error}</div>}
         </Box>
       </Grid>
     </Grid>
