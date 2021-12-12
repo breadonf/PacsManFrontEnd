@@ -15,8 +15,8 @@ export default function LoginForm(props) {
   function submitHandler(event) {
     event.preventDefault();
     const loginData = {
-      username: userName,
-      password: password
+      username: enteredUserName,
+      password: enteredPassword,
     };
     props.onLogin(loginData);
   }
@@ -33,54 +33,60 @@ export default function LoginForm(props) {
     }
 }
   return (
-    <Grid container spacing={2}  direction="column"
-    alignItems="center"
-    justifyContent="center">
-      <Grid item xs={12} lg={10}>
+    <Grid container spacing={2} alignContent="center" justifyContent="center">
+      <Grid item>
         <Box component="form">
-          <Grid item xs={10} sx={{ p: 2, m: 2 }}>
+          <Grid item xs={12} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
               <InputLabel>User Name</InputLabel>
               <Input
+                required
                 type="text"
                 id="username"
-                value={userName}
-                onChange={handleChange}
+                // value={newUserName}
+                onChange={(event) => {
+                  setUserName(event.target.value);
+                }}
               >
                 User Name
               </Input>
             </FormControl>
           </Grid>
-          <Grid item xs={10} sx={{ p: 2, m: 2 }}>
+          <Grid item xs={12} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
               <InputLabel>Password</InputLabel>
               <Input
+                required
                 type="password"
                 id="password"
-                value={password}
-                onChange={handleChange}
+                // value={newPassword}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
               >
                 Password
               </Input>
             </FormControl>
           </Grid>
-          <Grid item xs={3} sx={{ p: 2, m: 2 }}>
-            <FormControl fullWidth>
-              <Button
-                variant="contained"
-                type="submit"
-                aria-label="submit"
-                endIcon={<SendAndArchiveIcon />}
-                onClick={submitHandler}
-              >
-                Submit
-              </Button>
-            </FormControl>
-          </Grid>
-          <Grid item xs={3} sx={{ p: 2, m: 2 }}>
-            <Link href="/">
-              <Button variant="contained" fullWidth>Back to Home</Button>
-            </Link>
+          <Grid container justifyContent="center">
+            <Grid item xs={3} sx={{ p: 2, m: 2 }}>
+              <FormControl>
+                <Button
+                  variant="contained"
+                  type="submit"
+                  aria-label="submit"
+                  endIcon={<SendAndArchiveIcon />}
+                  onClick={submitHandler}
+                >
+                  Submit
+                </Button>
+              </FormControl>
+            </Grid>
+            <Grid item xs={6} sx={{ p: 2, m: 2 }}>
+              <Link href="/">
+                <Button variant="contained">Back to Home</Button>
+              </Link>
+            </Grid>
           </Grid>
         </Box>
       </Grid>

@@ -4,20 +4,19 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { padding } from "@mui/system";
 
 export default function HelloBox() {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sx={{p:2}}>
+      <Grid item xs={12} sx={{pb:2}}>
         <Card raised>
           <CardContent>
-            <Grid item xs={10}>
+            <Grid item xs={12}>
               <Typography variant="h4" component="div">
                 Hello User!
               </Typography>
             </Grid>
-            <Grid item xs={10}>
+            <Grid item xs={12}>
               <Typography variant="h6" component="div">
                 You have:
               </Typography>

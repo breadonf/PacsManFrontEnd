@@ -49,6 +49,81 @@ const rows = [
     col11: "Wor3ld",
     col12: "Wo3rld",
   },
+  {
+    id: 4,
+    status: "stat123us",
+    col2: "Wo3rld",
+    col3: "Worl3d",
+    col4: "Wor3ld",
+    col5: "Wo3rld",
+    col6: "Wo3rld",
+    col7: "Wor3ld",
+    col8: "Worl3d",
+    col9: "W3orld",
+    col10: "W3orld",
+    col11: "Wor3ld",
+    col12: "Wo3rld",
+  },
+  {
+    id: 5,
+    status: "stat123us",
+    col2: "Wo3rld",
+    col3: "Worl3d",
+    col4: "Wor3ld",
+    col5: "Wo3rld",
+    col6: "Wo3rld",
+    col7: "Wor3ld",
+    col8: "Worl3d",
+    col9: "W3orld",
+    col10: "W3orld",
+    col11: "Wor3ld",
+    col12: "Wo3rld",
+  },
+  {
+    id: 6,
+    status: "stat123us",
+    col2: "Wo3rld",
+    col3: "Worl3d",
+    col4: "Wor3ld",
+    col5: "Wo3rld",
+    col6: "Wo3rld",
+    col7: "Wor3ld",
+    col8: "Worl3d",
+    col9: "W3orld",
+    col10: "W3orld",
+    col11: "Wor3ld",
+    col12: "Wo3rld",
+  },
+  {
+    id: 7,
+    status: "stat123us",
+    col2: "Wo3rld",
+    col3: "Worl3d",
+    col4: "Wor3ld",
+    col5: "Wo3rld",
+    col6: "Wo3rld",
+    col7: "Wor3ld",
+    col8: "Worl3d",
+    col9: "W3orld",
+    col10: "W3orld",
+    col11: "Wor3ld",
+    col12: "Wo3rld",
+  },
+  {
+    id: 8,
+    status: "stat123us",
+    col2: "Wo3rld",
+    col3: "Worl3d",
+    col4: "Wor3ld",
+    col5: "Wo3rld",
+    col6: "Wo3rld",
+    col7: "Wor3ld",
+    col8: "Worl3d",
+    col9: "W3orld",
+    col10: "W3orld",
+    col11: "Wor3ld",
+    col12: "Wo3rld",
+  },
 ];
 
 const columns = [
@@ -68,12 +143,14 @@ const columns = [
 export default function TaskTable() {
   return (
     <Grid container xs={12}>
-      <Grid item>
-        <Card component="div" raised sx={{ height: 500, width: "100%" }}>
+      <Grid item xs={12} sx={{minHeight:500}}>
+        <Card component="div" raised sx={{height: '100%'}}>
           <DataGrid
             components={{ Toolbar: GridToolbar }}
             rows={rows}
             columns={columns}
+            autoHeight
+            autoPageSize
           />
         </Card>
       </Grid>

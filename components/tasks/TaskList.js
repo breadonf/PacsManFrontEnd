@@ -3,31 +3,34 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import TaskItems from "./TaskItems";
 import Card from "@mui/material/Card";
-import Box from "@mui/material/Box";
 import CardContent from "@mui/material/CardContent";
 
 const TaskList = (props) => {
   return (
-    <Grid item xs={12} sx={{p:2}}>
+    <Grid item xs={12}>
       <Card raised>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ p: 2 }}>
           <Typography variant="h4">Recent tasks</Typography>
         </Grid>
-        <Card raised sx={{ display: "inline" }}>
-          <CardContent>
-            {props.tasks.map((task) => (
-              <TaskItems
-                key={task.id}
-                id={task.id}
-                status={task.status}
-                title={task.title}
-                deadline={task.deadline}
-                issuer={task.issuer}
-                handler={task.handler}
-              />
-            ))}
-          </CardContent>
-        </Card>
+        <Grid item sx={{ pb: 2 }}>
+          <Card raised sx={{ pb: 2 }}>
+            <CardContent style={{ border: "1px solid lightgrey" }}>
+              {props.tasks.map((task) => (
+                <Card variant="outlined">
+                  <TaskItems
+                    key={task.id}
+                    id={task.id}
+                    status={task.status}
+                    title={task.title}
+                    deadline={task.deadline}
+                    issuer={task.issuer}
+                    handler={task.handler}
+                  />
+                </Card>
+              ))}
+            </CardContent>
+          </Card>
+        </Grid>
       </Card>
     </Grid>
   );

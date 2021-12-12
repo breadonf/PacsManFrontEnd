@@ -10,11 +10,10 @@ const TaskItems = (props) => {
   const router = useRouter();
 
   function showDetailsHandler() {
-    router.push("/task/" + props.id);
+    router.push("./Task/" + props.id);
   }
 
   return (
-    <Card raised xs={{ p: 2, m: 2 }}>
       <CardActionArea xs={{ m: 2 }} onClick={showDetailsHandler}>
         <Grid item xs={10}>
           <Typography variant="h5" component="div">
@@ -54,8 +53,8 @@ const TaskItems = (props) => {
             {props.details}
           </Typography>
         </Box>
+        <br></br>
       </CardActionArea>
-    </Card>
   );
 };
 
