@@ -9,26 +9,34 @@ import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import InputLabel from "@mui/material/InputLabel";
 
 export default function LoginForm(props) {
-  const [newUserName, setUserName] = useState();
-  const [newPassword, setPassword] = useState();
+  const [userName, setUserName] = useState();
+  const [password, setPassword] = useState();
 
   function submitHandler(event) {
     event.preventDefault();
-
-    const enteredUserName = newUserName;
-    const enteredPassword = newPassword;
-
     const loginData = {
-      Username: enteredUserName,
-      Password: enteredPassword,
+      username: userName,
+      password: password
     };
-
     props.onLogin(loginData);
   }
-
+  const handleChange = ({ target }) => {
+    switch(target.id){
+        case "username":
+          setUserName(target.value);
+            break;
+        case "password":
+          setPassword(target.value);
+            break;
+        default:
+            return;
+    }
+}
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
+    <Grid container spacing={2}  direction="column"
+    alignItems="center"
+    justifyContent="center">
+      <Grid item xs={12} lg={10}>
         <Box component="form">
           <Grid item xs={10} sx={{ p: 2, m: 2 }}>
             <FormControl fullWidth>
@@ -36,10 +44,8 @@ export default function LoginForm(props) {
               <Input
                 type="text"
                 id="username"
-                value={newUserName}
-                onChange={(event) => {
-                  setUserName(event.target.value);
-                }}
+                value={userName}
+                onChange={handleChange}
               >
                 User Name
               </Input>
@@ -51,10 +57,8 @@ export default function LoginForm(props) {
               <Input
                 type="password"
                 id="password"
-                value={newPassword}
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                }}
+                value={password}
+                onChange={handleChange}
               >
                 Password
               </Input>

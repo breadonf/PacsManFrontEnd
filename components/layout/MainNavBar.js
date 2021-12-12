@@ -16,6 +16,7 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 
 export default function MainNavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [ isLogggedIn, setIsLoggedIn ] = React.useState(false)
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -49,7 +50,9 @@ export default function MainNavBar() {
             >
               <Link href="/">PacsMan</Link>
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Link href="/Login">
+              <Button color="inherit">Login</Button>
+            </Link>
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
