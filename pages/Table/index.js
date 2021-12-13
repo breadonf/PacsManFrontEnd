@@ -28,5 +28,5 @@ function Table() {
   }
   
   }
-export default Table;
-// export default withAuth(Table);
+//export default Table;
+export default withAuth(Table);

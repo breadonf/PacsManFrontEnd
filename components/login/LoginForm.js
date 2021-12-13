@@ -33,6 +33,7 @@ export default function LoginForm(props) {
       };
 
       props.onLogin(loginData).then(() => {
+        console.log((window.localStorage.getItem('currentUser')))
         router.push("/");
       });
     }

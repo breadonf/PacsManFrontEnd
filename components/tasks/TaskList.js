@@ -16,7 +16,7 @@ const TaskList = (props) => {
           <Card raised sx={{ pb: 2, bgcolor:'lightblue'}}>
             <CardContent style={{ border: "1px solid lightgrey" }}>
               {props.tasks.map((task) => (
-                <Card variant="outlined">
+                <Card key={task.id} variant="outlined">
                   <TaskItems
                     key={task.key}
                     id={task.id}
