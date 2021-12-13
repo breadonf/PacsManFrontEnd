@@ -1,5 +1,6 @@
 import React from "react";
 import TaskTable from "../../components/tasks/TaskTable";
+import withAuth from "../../lib/withAuth";
 //import axios from 'axios';
 //import useSWR from 'swr'
 
@@ -26,4 +27,4 @@ function Table() {
     <TaskTable events = {data}/>
   ) */
 
-export default Table;
+export default withAuth(Table);

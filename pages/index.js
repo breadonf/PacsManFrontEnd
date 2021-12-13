@@ -1,7 +1,7 @@
-import Typography from "@material-ui/core/Typography";
 import React from "react";
 import HelloBox from "../components/homeComponents/hello";
 import TaskList from "../components/tasks/TaskList";
+import withAuth from "../lib/withAuth"
 
 const Dummy_tasks =[
   {
@@ -33,4 +33,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withAuth(Home);

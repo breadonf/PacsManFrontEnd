@@ -1,4 +1,5 @@
 import React from "react";
+import withAuth from "../../lib/withAuth";
 import TaskForm from "../../components/tasks/TaskForm";
 
 //const apiUrl =
@@ -16,4 +17,4 @@ function Form() {
   return <TaskForm onAddTask={addTaskHandler} />;
 }
 
-export default Form;
+export default withAuth(Form);
