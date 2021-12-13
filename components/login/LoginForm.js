@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Box from "@mui/material/Box";
@@ -10,47 +10,37 @@ import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import InputLabel from "@mui/material/InputLabel";
 
 export default function LoginForm(props) {
-  const [newUserName, setUserName] = useState();
-  const [newPassword, setPassword] = useState();
-  const [Error, setError] = useState();
-
+  //const [newUserName, setUserName] = useState();
+  //const [newPassword, setPassword] = useState();
+  const userNameInputRef = useRef();
+  const passwordInputRef = useRef();
   const router = useRouter();
 
   function submitHandler(event) {
     event.preventDefault();
-    setError("");
-    const enteredUserName = newUserName;
-    const enteredPassword = newPassword;
+    const enteredUserName = userNameInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
 
-   //  const [userName, setUserName] = useState();
+    //  const [userName, setUserName] = useState();
     // const [password, setPassword] = useState();
 
-    function submitHandler(event) {
-      event.preventDefault();
-      const loginData = {
-        username: enteredUserName,
-        password: enteredPassword,
+   // function submitHandler(event) {
+     // event.preventDefault();
+    const loginData = {
+      username: enteredUserName,
+      password: enteredPassword,
       };
 
-      props
-        .onLogin(loginData)
-        .then(() => {
-          router.push("./");
-        })
-        .catch(this.showError);
+      props.onLogin(loginData).then(() => {
+        router.push("./");
+      });
     }
-
-    const showError = (err) => {
-      console.error(err);
-      const error = (err.response && err.response.data) || err.message;
-      setError({ error });
-    };
 
     // const {error} = this.state;
 
-   // props.onLogin(loginData);
-  }
-/*  const handleChange = ({ target }) => {
+    // props.onLogin(loginData);
+  
+  /*  const handleChange = ({ target }) => {
     switch (target.id) {
       case "username":
         setUserName(target.value);
@@ -73,10 +63,11 @@ export default function LoginForm(props) {
                 required
                 type="text"
                 id="username"
-                value={newUserName}
-                onChange={(event) => {
-                  setUserName(event.target.value);
-                }}
+                // value={newUserName}
+                inputRef={userNameInputRef}
+                // onChange={(event) => {
+                //  setUserName(event.target.value);
+                //}}
               >
                 User Name
               </Input>
@@ -89,10 +80,11 @@ export default function LoginForm(props) {
                 required
                 type="password"
                 id="password"
-                value={newPassword}
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                }}
+                inputRef={passwordInputRef}
+                // value={newPassword}
+                //onChange={(event) => {
+                //  setPassword(event.target.value);
+                //}}
               >
                 Password
               </Input>
@@ -118,7 +110,6 @@ export default function LoginForm(props) {
               </Link>
             </Grid>
           </Grid>
-          {Error && <div>{Error}</div>}
         </Box>
       </Grid>
     </Grid>
