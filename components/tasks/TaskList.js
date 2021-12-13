@@ -18,7 +18,7 @@ const TaskList = (props) => {
               {props.tasks.map((task) => (
                 <Card variant="outlined">
                   <TaskItems
-                    key={task.id}
+                    key={task.key}
                     id={task.id}
                     status={task.status}
                     title={task.title}

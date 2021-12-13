@@ -2,6 +2,8 @@ import React from "react";
 import TaskTable from "../../components/tasks/TaskTable";
 import axios from 'axios';
 import useSWR from 'swr'
+import withAuth from "../../lib/withAuth";
+
 
 
 const apiUrl = "https://backend-productivity.herokuapp.com/tasks/api/get-task/"
@@ -27,3 +29,4 @@ function Table() {
   
   }
 export default Table;
+// export default withAuth(Table);
