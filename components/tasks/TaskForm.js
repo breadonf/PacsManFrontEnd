@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import Autocomplete from "@mui/material/Autocomplete";
+import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
@@ -21,6 +21,20 @@ import Link from "next/link";
 
 // todo: fetch users to select
 
+const fetchedTaskData = [
+  { user: "123" },
+  { user: "hkchadmin" },
+  { user: "handler" },
+  { user: "issuer" },
+  { user: "example" },
+  { user: "example1" },
+];
+
+/* const filterOptions = createFilterOptions({
+  matchFrom: "start",
+  stringify: (option) => option.Name,
+}); */
+
 export default function TaskForm(props) {
   const statusInputRef = useRef();
   const titleInputRef = useRef();
@@ -34,8 +48,6 @@ export default function TaskForm(props) {
   const [selectedEndDate, setEndDate] = useState(null);
   const [selectedDeadline, setDeadline] = useState(null);
   const [yetSubmited, setSubmited] = useState(true);
-
-
 
   function submitHandler(event) {
     event.preventDefault();
@@ -291,9 +303,12 @@ export default function TaskForm(props) {
                 <Autocomplete
                   id="issuer"
                   loading
-                  // options={fetchedTaskData}
-                  // getOptionLabel={(option) => option.users}
-                  options={[{ label: "test1" }, { label: "test2" }]}
+                  options={fetchedTaskData}
+                  getOptionLabel={(option) => option.user}
+                  // filterOptions={filterOptions}
+                  isOptionEqualToValue={(option, value) =>
+                    option.id === value.id
+                  }
                   renderInput={(params) => (
                     <TextField
                       {...params}
@@ -311,9 +326,9 @@ export default function TaskForm(props) {
                 <Autocomplete
                   id="handler"
                   loading
-                  // options={fetchedTaskData}
-                  // getOptionLabel={(option) => option.users}
-                  options={[{ label: "test3" }, { label: "test4" }]}
+                  options={fetchedTaskData}
+                  getOptionLabel={(option) => option.user}
+                  // filterOptions={filterOptions}
                   isOptionEqualToValue={(option, value) =>
                     option.id === value.id
                   }
