@@ -1,11 +1,15 @@
 import React from "react";
 import HelloBox from "../components/homeComponents/hello";
 import TaskList from "../components/tasks/TaskList";
-import withAuth from "../lib/withAuth"
+import withAuth from "../lib/withAuth";
+import axios from "axios";
+import useSWR from "swr";
 
 // to do fetch task data with in progress status
+const fetcher = (url) => axios({ method: "get", url: url });
+// const fetcher = url => axios({method: "get", url: url)
 
-const Dummy_tasks =[
+/* const Dummy_tasks =[
   {
     id:'t1',
     key:"1",
@@ -24,13 +28,20 @@ const Dummy_tasks =[
     issuer: 'will',
     handler: 'brendon',
   }
-]
+] */
 
 function Home() {
+  const apiUrl =
+    "https://backend-productivity.herokuapp.com/tasks/api/get-recent/5";
+
+  const { data, error } = useSWR(apiUrl, fetcher);
+  if (error) return <div>Failed to load</div>;
+  if (!data) return <div>Loading</div>;
+
   return (
     <>
       <HelloBox />
-      <TaskList tasks={Dummy_tasks} />
+      <TaskList tasks={data} />
     </>
   );
 }

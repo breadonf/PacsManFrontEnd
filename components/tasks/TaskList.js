@@ -13,10 +13,10 @@ const TaskList = (props) => {
           <Typography variant="h4">Recent tasks</Typography>
         </Grid>
         <Grid item sx={{ pb: 2 }}>
-          <Card raised sx={{ pb: 2, bgcolor:'lightblue'}}>
+          <Card raised sx={{ pb: 2, bgcolor: "lightblue" }}>
             <CardContent style={{ border: "1px solid lightgrey" }}>
               {props.tasks.map((task) => (
-                <Card variant="outlined">
+                <Card key={task.key} variant="outlined">
                   <TaskItems
                     key={task.key}
                     id={task.id}
