@@ -1,6 +1,6 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
-
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,8 +11,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { isAuthenticated } from "../../lib/auth";
+import { RemoveToken } from "../../lib/auth";
 
 export default function MainNavBar() {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -21,6 +23,11 @@ export default function MainNavBar() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const logoutHandler = () => {
+    router.push("/");
+    RemoveToken;
   };
 
   return (
@@ -48,9 +55,15 @@ export default function MainNavBar() {
               <Link href="/">PacsMan</Link>
             </Typography>
 
-            {isAuthenticated && (
+            {!isAuthenticated && (
               <Button color="inherit">
-                <Link href="/Login">Logout</Link>
+                <Link href="/Login">Login</Link>
+              </Button>
+            )}
+
+            {isAuthenticated && (
+              <Button color="inherit" onClick={logoutHandler}>
+                Logout
               </Button>
             )}
 
