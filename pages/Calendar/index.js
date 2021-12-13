@@ -23,4 +23,5 @@ function Calendar() {
   )
 }
 
-export default withAuth(Calendar);
+export default Calendar;
+// export default withAuth(Calendar);

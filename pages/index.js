@@ -3,6 +3,8 @@ import HelloBox from "../components/homeComponents/hello";
 import TaskList from "../components/tasks/TaskList";
 import withAuth from "../lib/withAuth"
 
+// to do fetch task data with in progress status
+
 const Dummy_tasks =[
   {
     id:'t1',
@@ -33,4 +35,5 @@ function Home() {
   );
 }
 
-export default withAuth(Home);
+export default Home;
+// export default withAuth(Home);

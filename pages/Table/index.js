@@ -27,4 +27,5 @@ function Table() {
     <TaskTable events = {data}/>
   ) */
 
-export default withAuth(Table);
+export default Table;
+// export default withAuth(Table);

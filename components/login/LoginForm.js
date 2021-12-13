@@ -14,6 +14,8 @@ export default function LoginForm(props) {
   //const [newPassword, setPassword] = useState();
   const userNameInputRef = useRef();
   const passwordInputRef = useRef();
+  //const [newPassword, setPassword] = useState();
+
   const router = useRouter();
 
   function submitHandler(event) {

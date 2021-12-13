@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
 import TaskDetail from "../../../components/tasks/TaskDetail";
-import axios from 'axios';
-import useSWR from 'swr'
-
+import withAuth from "../../../lib/withAuth";
+import axios from "axios";
+import useSWR from "swr";
 
 function Details() {
   const router = useRouter();
@@ -11,7 +11,7 @@ function Details() {
   const TaskId = router.query.TaskId;
 
   //send a request to backendAPi
-  //fetch task with taskId
+  //fetch task with specific taskId
 
   return (
     <TaskDetail
@@ -27,5 +27,5 @@ function Details() {
     />
   );
 }
-
 export default Details;
+// export default withAuth(Details);

@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 export default function MainNavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  // const [isLogggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLogggedIn, setIsLoggedIn] = React.useState(false);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,9 +47,17 @@ export default function MainNavBar() {
             >
               <Link href="/">PacsMan</Link>
             </Typography>
-            <Button color="inherit">
-              <Link href="/Login">Login</Link>
-            </Button>
+            {!isLogggedIn && (
+              <Button color="inherit">
+                <Link href="/Login">Login</Link>
+              </Button>
+            )}
+            {isLogggedIn && (
+              <Button color="inherit">
+                <Link href="/Login">Logout</Link>
+              </Button>
+            )}
+
             <Menu
               id="menu-appbar"
               sx={{ minHeight: 200, display: "block" }}

@@ -17,4 +17,5 @@ function Form() {
   return <TaskForm onAddTask={addTaskHandler} />;
 }
 
-export default withAuth(Form);
+export default Form;
+// export default withAuth(Form);

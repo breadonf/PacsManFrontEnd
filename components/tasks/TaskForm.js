@@ -19,6 +19,8 @@ import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import Link from "next/link";
 
+// todo: fetch users to select
+
 export default function TaskForm(props) {
   const statusInputRef = useRef();
   const titleInputRef = useRef();
@@ -33,12 +35,7 @@ export default function TaskForm(props) {
   const [selectedDeadline, setDeadline] = useState(null);
   const [yetSubmited, setSubmited] = useState(true);
 
-  /*function SubmitMsg(props) {
-    const Submited = props.isSubmited;
-    if (Submited) {
-      return <Typography variant="h4" sx={{color:'lightblue'}}> Task Submited! </Typography>;
-    }
-  } */
+
 
   function submitHandler(event) {
     event.preventDefault();
@@ -71,7 +68,6 @@ export default function TaskForm(props) {
 
     props.onAddTask(taskData);
     setSubmited(false);
-    // event.target.reset();
   }
 
   function addAnotherHandler(event) {
@@ -379,7 +375,7 @@ export default function TaskForm(props) {
           >
             <Grid item sx={{ pt: 4 }}>
               <Typography variant="h2" color="primary">
-                Task Submited!
+                Task Submitted!
               </Typography>
             </Grid>
 
