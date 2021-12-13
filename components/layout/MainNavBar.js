@@ -10,10 +10,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { isAuthenticated } from "../../lib/auth";
 
 export default function MainNavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [isLogggedIn, setIsLoggedIn] = React.useState(false);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,12 +47,8 @@ export default function MainNavBar() {
             >
               <Link href="/">PacsMan</Link>
             </Typography>
-            {!isLogggedIn && (
-              <Button color="inherit">
-                <Link href="/Login">Login</Link>
-              </Button>
-            )}
-            {isLogggedIn && (
+
+            {isAuthenticated && (
               <Button color="inherit">
                 <Link href="/Login">Logout</Link>
               </Button>
