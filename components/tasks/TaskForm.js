@@ -74,8 +74,8 @@ export default function TaskForm(props) {
       deadline: enteredDeadline,
       location: enteredLocation,
       details: enteredDetails,
-      //issuer: enteredIssuer,
-      //handler: enteredHandler,
+      issuer: enteredIssuer,
+      handler: enteredHandler,
     };
 
     props.onAddTask(taskData);
@@ -303,8 +303,8 @@ export default function TaskForm(props) {
                 <Autocomplete
                   id="issuer"
                   loading
-                  options={fetchedTaskData}
-                  getOptionLabel={(option) => option.user}
+                  options={props.users}
+                  // getOptionLabel={(option) => option.user}
                   // filterOptions={filterOptions}
                   isOptionEqualToValue={(option, value) =>
                     option.id === value.id
@@ -326,8 +326,8 @@ export default function TaskForm(props) {
                 <Autocomplete
                   id="handler"
                   loading
-                  options={fetchedTaskData}
-                  getOptionLabel={(option) => option.user}
+                  options={props.users}
+                  //getOptionLabel={(option) => option.user}
                   // filterOptions={filterOptions}
                   isOptionEqualToValue={(option, value) =>
                     option.id === value.id

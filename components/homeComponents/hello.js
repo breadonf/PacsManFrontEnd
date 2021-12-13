@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-export default function HelloBox() {
+export default function HelloBox(props) {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sx={{pb:2}}>
@@ -32,7 +32,7 @@ export default function HelloBox() {
                   borderRadius: 5,
                 }}
               >
-                0 Outstanding Task
+                {props.count} Outstanding Task
               </Box>
               <Box
                 component="div"
@@ -44,7 +44,7 @@ export default function HelloBox() {
                   borderRadius: 5,
                 }}
               >
-                0 Task Completed
+                {props.count} Task Completed
               </Box>
             </div>
           </CardContent>
