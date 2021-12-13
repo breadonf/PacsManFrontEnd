@@ -31,6 +31,14 @@ export default function TaskForm(props) {
   const [selectedStartDate, setStartDate] = useState(null);
   const [selectedEndDate, setEndDate] = useState(null);
   const [selectedDeadline, setDeadline] = useState(null);
+  //const [isSubmited, setSubmited] = useState(false);
+
+  function SubmitMsg(props) {
+    const Submited = props.isSubmited;
+    if (Submited) {
+      return <Typography variant="h4" sx={{color:'lightblue'}}> Task Submited! </Typography>;
+    }
+  }
 
   function submitHandler(event) {
     event.preventDefault();
@@ -62,10 +70,15 @@ export default function TaskForm(props) {
     };
 
     props.onAddTask(taskData);
+    // setSubmited(true);
+    event.target.reset();
   }
 
   return (
-    <Paper sx={{m:4, bgcolor:'lightyellow'}} elevation={24}>
+    <Paper sx={{ m: 4, bgcolor: "lightyellow" }} elevation={24}>
+      <Box component="div" sx={{textAlign:'center'}}>
+        <SubmitMsg isSubmited={true} />
+      </Box>
       <Box component="form">
         <Grid
           container
