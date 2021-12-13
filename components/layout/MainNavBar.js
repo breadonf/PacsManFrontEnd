@@ -13,8 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 export default function MainNavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [ isLogggedIn, setIsLoggedIn ] = React.useState(false)
-
+  // const [isLogggedIn, setIsLoggedIn] = React.useState(false);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -53,7 +52,7 @@ export default function MainNavBar() {
             </Button>
             <Menu
               id="menu-appbar"
-              sx={{minHeight: 200, display:'block'}}
+              sx={{ minHeight: 200, display: "block" }}
               anchorEl={anchorEl}
               anchorOrigin={{ vertical: "top", horizontal: "left" }}
               keepMounted
@@ -65,7 +64,7 @@ export default function MainNavBar() {
               onClose={handleClose}
             >
               <MenuItem onClick={handleClose}>
-                <Link href="./">Home Page</Link>
+                <Link href="/">Home Page</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <Link href="/Table">Table View</Link>

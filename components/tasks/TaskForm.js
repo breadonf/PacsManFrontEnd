@@ -100,10 +100,18 @@ export default function TaskForm(props) {
                   inputRef={statusInputRef}
                   defaultValue={"Pending"}
                 >
-                  <MenuItem value={"Pending"}>Pending</MenuItem>
-                  <MenuItem value={"InProgress"}>In Progress</MenuItem>
-                  <MenuItem value={"Completed"}>Completed</MenuItem>
-                  <MenuItem value={"Failed"}>Failed</MenuItem>
+                  <MenuItem value={"Pending"} key={"Pending"}>
+                    Pending
+                  </MenuItem>
+                  <MenuItem value={"InProgress"} key={"InProgress"}>
+                    In Progress
+                  </MenuItem>
+                  <MenuItem value={"Completed"} key={"Completed"}>
+                    Completed
+                  </MenuItem>
+                  <MenuItem value={"Failed"} key={"Failed"}>
+                    Failed
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -134,20 +142,39 @@ export default function TaskForm(props) {
                   inputRef={categoryInputRef}
                   defaultValue={"it support"}
                 >
-                  <MenuItem value={"it support"}>IT support</MenuItem>
-                  <MenuItem value={"error handling"}>Error handling</MenuItem>
-                  <MenuItem value={"documentation"}>Documentation</MenuItem>
-                  <MenuItem value={"server maintainence"}>
+                  <MenuItem value={"it support"} key={"it support"}>
+                    IT support
+                  </MenuItem>
+                  <MenuItem value={"error handling"} key={"error handling"}>
+                    Error handling
+                  </MenuItem>
+                  <MenuItem value={"documentation"} key={"documentation"}>
+                    Documentation
+                  </MenuItem>
+                  <MenuItem
+                    value={"server maintainence"}
+                    key={"server maintainence"}
+                  >
                     Server Maintainence
                   </MenuItem>
-                  <MenuItem value={"stock taking"}>Stock Taking</MenuItem>
-                  <MenuItem value={"external film handling"}>
+                  <MenuItem value={"stock taking"} key={"stock taking"}>
+                    Stock Taking
+                  </MenuItem>
+                  <MenuItem
+                    value={"external film handling"}
+                    key={"external film handling"}
+                  >
                     external film handling
                   </MenuItem>
-                  <MenuItem value={"export local film"}>
+                  <MenuItem
+                    value={"export local film"}
+                    key={"export local film"}
+                  >
                     export local film
                   </MenuItem>
-                  <MenuItem value={"others"}>others</MenuItem>
+                  <MenuItem value={"others"} key={"others"}>
+                    others
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -224,19 +251,27 @@ export default function TaskForm(props) {
                   inputRef={locationInputRef}
                   defaultValue={"PACS"}
                 >
-                  <MenuItem value={"PACS"}>PACS Room</MenuItem>
-                  <MenuItem value={"XR"}>General X-Ray Room</MenuItem>
-                  <MenuItem value={"US"}>Ultrasound Exam Room</MenuItem>
-                  <MenuItem value={"CT"}>
+                  <MenuItem value={"PACS"} key={"PACS"}>
+                    PACS Room
+                  </MenuItem>
+                  <MenuItem value={"XR"} key={"XR"}>
+                    General X-Ray Room
+                  </MenuItem>
+                  <MenuItem value={"US"} key={"US"}>
+                    Ultrasound Exam Room
+                  </MenuItem>
+                  <MenuItem value={"CT"} key={"CT"}>
                     Computed Tomography Exam Room
                   </MenuItem>
-                  <MenuItem value={"MRI"}>
+                  <MenuItem value={"MRI"} key={"MRI"}>
                     Magnetic Resonance Imaging Exam Room
                   </MenuItem>
-                  <MenuItem value={"AIR"}>
+                  <MenuItem value={"AIR"} key={"AIR"}>
                     Angiograohy and Interventi onal Radiography Theatre
                   </MenuItem>
-                  <MenuItem value={"Report"}>Reporting Area</MenuItem>
+                  <MenuItem value={"Report"} key={"Report"}>
+                    Reporting Area
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Grid>

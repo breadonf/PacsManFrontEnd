@@ -2,6 +2,7 @@ import React from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid/";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
+import { useRouter } from "next/router";
 
 const rows = [
   {
@@ -140,17 +141,24 @@ const columns = [
   { field: "col12", headerName: "Handler", width: 150 },
 ];
 
-export default function TaskTable() {
+export default function TaskTable(props) {
+  const router = useRouter();
+
+  const RowClickHandler = (e) => {
+    router.push("./Task/" + props.id);
+  };
+
   return (
     <Grid container>
-      <Grid item xs={12} sx={{minHeight:500}}>
-        <Card component="div" raised sx={{height: '100%'}}>
+      <Grid item xs={12} sx={{ minHeight: 500 }}>
+        <Card component="div" raised sx={{ height: "100%" }}>
           <DataGrid
             components={{ Toolbar: GridToolbar }}
             rows={rows}
             columns={columns}
             autoHeight
             autoPageSize
+            onRowClick={RowClickHandler}
           />
         </Card>
       </Grid>
