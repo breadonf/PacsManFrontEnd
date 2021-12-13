@@ -21,12 +21,12 @@ import Link from "next/link";
 
 export default function TaskForm(props) {
   const statusInputRef = useRef();
-  const titleInputRef = useRef();
+  const titleInputRef = useRef("hi");
   const categoryInputRef = useRef();
   const locationInputRef = useRef();
   const detailsInputRef = useRef();
-  const issuerInputRef = useRef();
-  const handlerInputRef = useRef();
+  const issuerInputRef = useRef(null);
+  const handlerInputRef = useRef(null);
   const [selectedUrgent, setUrgent] = useState(true);
   const [selectedStartDate, setStartDate] = useState(null);
   const [selectedEndDate, setEndDate] = useState(null);
@@ -65,8 +65,8 @@ export default function TaskForm(props) {
       deadline: enteredDeadline,
       location: enteredLocation,
       details: enteredDetails,
-      issuer: enteredIssuer,
-      handler: enteredHandler,
+      //issuer: enteredIssuer,
+      //handler: enteredHandler,
     };
 
     props.onAddTask(taskData);

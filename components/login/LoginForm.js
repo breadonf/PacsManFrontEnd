@@ -15,7 +15,6 @@ export default function LoginForm(props) {
   const userNameInputRef = useRef();
   const passwordInputRef = useRef();
   const router = useRouter();
-
   function submitHandler(event) {
     event.preventDefault();
     const enteredUserName = userNameInputRef.current.value;
@@ -52,6 +51,7 @@ export default function LoginForm(props) {
         return;
     }
   }; */
+  
   return (
     <Grid container spacing={2} alignContent="center" justifyContent="center">
       <Grid item>
