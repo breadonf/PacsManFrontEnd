@@ -55,7 +55,7 @@ export default function MainNavBar() {
               <Link href="/">PacsMan</Link>
             </Typography>
 
-            {!isAuthenticated && (
+           {isAuthenticated && (
               <Button color="inherit">
                 <Link href="/Login">Login</Link>
               </Button>
