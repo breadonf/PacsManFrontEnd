@@ -10,19 +10,11 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Divider from "@material-ui/core/Divider";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
 
 export default function MainNavBar() {
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [ isLogggedIn, setIsLoggedIn ] = React.useState(false)
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -83,21 +75,6 @@ export default function MainNavBar() {
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 <Link href="/Form">Add Task</Link>
-              </MenuItem>
-              <Divider />
-              <MenuItem>
-                <FormGroup>
-                  <FormControlLabel
-                    control={
-                      <Switch
-                        checked={auth}
-                        onChange={handleChange}
-                        aria-label="login switch"
-                      />
-                    }
-                    label={auth ? "logout" : "login"}
-                  />
-                </FormGroup>
               </MenuItem>
             </Menu>
           </Toolbar>
