@@ -43,5 +43,5 @@ function Details() {
   );
 }
 
-export default Details;
-// export default withAuth(Details);
+//export default Details;
+export default withAuth(Details);

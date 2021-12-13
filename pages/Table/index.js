@@ -20,6 +20,5 @@ function Table() {
     console.log(data);
     return <TaskTable events={data} />;
   }
-}
-export default Table;
-// export default withAuth(Table);
+//export default Table;
+export default withAuth(Table);

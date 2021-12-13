@@ -31,5 +31,5 @@ function Form() {
   return <TaskForm onAddTask={addTaskHandler} users={data} />;
 }
 
-export default Form;
-// export default withAuth(Form);
+//export default Form;
+export default withAuth(Form);
