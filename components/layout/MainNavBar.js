@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { isAuthenticated } from "../../lib/auth";
-import { RemoveToken } from "../../lib/auth";
+
 
 export default function MainNavBar() {
   const router = useRouter();
@@ -27,7 +27,9 @@ export default function MainNavBar() {
 
   const logoutHandler = () => {
     router.push("/");
-    RemoveToken;
+    window.localStorage.removeItem("currentUser")
+    isAuthenticated = false
+    ;
   };
 
   return (
@@ -55,17 +57,14 @@ export default function MainNavBar() {
               <Link href="/">PacsMan</Link>
             </Typography>
 
-           {isAuthenticated && (
-              <Button color="inherit">
-                <Link href="/Login">Login</Link>
-              </Button>
-            )}
-
-            {isAuthenticated && (
-              <Button color="inherit" onClick={logoutHandler}>
+           {isAuthenticated 
+           ? <Button color="inherit" onClick={logoutHandler}>
                 Logout
               </Button>
-            )}
+           : <Button color="inherit">
+                <Link href="/Login">Login</Link>
+              </Button>
+            }
 
             <Menu
               id="menu-appbar"

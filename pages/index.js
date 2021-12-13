@@ -35,13 +35,13 @@ function Home() {
     "https://backend-productivity.herokuapp.com/tasks/api/get-recent/5";
 
   const { data, error } = useSWR(apiUrl, fetcher);
-  if (error) return <div>Failed to load</div>;
+  if (error) return <div>Please Login</div>;
   if (!data) return <div>Loading</div>;
-
+  console.log(data.data.message)
   return (
     <>
       <HelloBox />
-      <TaskList tasks={data} />
+      <TaskList tasks={data.data.message} />
     </>
   );
 }

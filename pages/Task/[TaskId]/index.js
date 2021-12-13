@@ -22,21 +22,11 @@ function Details() {
   const router = useRouter();
   const TaskId = router.query.TaskId;
 
-<<<<<<< HEAD
-  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${Taskld}`
-
-  const { data, error } = useSWR(apiUrl, fetcher);
-  console.log(data)
-  if (error) return <div>Failed to load</div>;
-  if (!data) return <div>Loading</div>;
-  return <TaskDetail details={data} />;
-=======
   const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${TaskId}`;
 
   const { data, error } = useSWR(apiUrl, fetcher);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading</div>;
->>>>>>> 931d079ff1f712e543e14f0bdffe22a05ef764e1
 
   return (
     <TaskDetail
