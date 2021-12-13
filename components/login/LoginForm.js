@@ -32,7 +32,7 @@ export default function LoginForm(props) {
       };
 
       props.onLogin(loginData).then(() => {
-        router.push("./");
+        router.push("/");
       });
     }
 
