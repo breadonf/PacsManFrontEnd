@@ -1,5 +1,5 @@
 import React from "react";
-import withAuth from "../../lib/withAuth";
+
 import TaskForm from "../../components/tasks/taskForm";
 import axios from "axios";
 import useSWR from "swr";
@@ -33,5 +33,5 @@ function Form() {
   return <TaskForm onAddTask={addTaskHandler} users={data} />;
 }
 
-//export default Form;
-export default withAuth(Form);
+export default Form;
+

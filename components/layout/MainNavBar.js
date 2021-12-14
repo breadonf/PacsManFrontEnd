@@ -29,7 +29,6 @@ export default function MainNavBar() {
     window.localStorage.removeItem("currentUser");
     userCtx.logout()
   };
-  
   return (
     <header>
       <Box sx={{ flexGrow: 1 }}>
@@ -55,23 +54,12 @@ export default function MainNavBar() {
               <Link href="/">PacsMan</Link>
             </Typography>
 
-<<<<<<< HEAD
             <Button color="inherit" onClick={logoutHandler}>
               Logout
             </Button>
             <Button color="inherit">
-              <Link href="/Login">Login</Link>
+              <Link href="/login">Login</Link>
             </Button>
-=======
-           {isAuthenticated 
-           ? <Button color="inherit" onClick={logoutHandler}>
-                Logout
-              </Button>
-           : <Button color="inherit">
-                <Link href="/login">Login</Link>
-              </Button>
-            }
->>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
 
             <Menu
               id="menu-appbar"
