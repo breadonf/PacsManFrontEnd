@@ -3,19 +3,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid/";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/router";
-import Button from "@mui/material/Button";
-import axios from 'axios';
 
 // mui datatable is used for displaying tasks details, the columns are defined here
-
-async function apiDeleteHandler(id) {
-  const apiUrl =
-    `https://backend-productivity.herokuapp.com/tasks/api/delete-task/${id}`;
-  await axios
-    .delete(apiUrl)
-    .then((res, req) => console.log(req))
-    .catch((error) => console.log(error));
-}
 
 const columns = [
   { field: "status", headerName: "Status", width: 150 },
@@ -29,22 +18,6 @@ const columns = [
   { field: "details", headerName: "Details", width: 150 },
   { field: "issuer", headerName: "Issuer", width: 150 },
   { field: "handler", headerName: "Handler", width: 150 },
-  {
-    field: "",
-    headerName: "Delete",
-    width: 150,
-    renderCell: (params) => {
-      const deleteHandler = (e) => {
-        console.log(e)
-        apiDeleteHandler(e.data.task._id);
-      };
-      return (
-        <Button variant="outlined" onClick={deleteHandler}>
-          Delete
-        </Button>
-      );
-    },
-  },
 ];
 
 export default function TaskTable(props) {
@@ -56,16 +29,15 @@ export default function TaskTable(props) {
 
   return (
     <Grid container>
-      <Grid item xs={12} sx={{ minHeight: 600 }}>
+      <Grid item xs={12} sx={{ minHeight: 500 }}>
         <Card component="div" raised sx={{ height: "100%" }}>
           <DataGrid
-            getRowId={(row) => row._id}
+            getRowId = {(row)=> row._id}
             components={{ Toolbar: GridToolbar }}
             rows={props.events}
             columns={columns}
+            autoHeight
             autoPageSize
-            pagination
-            {...props.events}
             onRowClick={RowClickHandler}
           />
         </Card>
