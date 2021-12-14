@@ -1,11 +1,13 @@
 
 import MainNavBar from './MainNavBar';
 
-function Layout(props) {
+function Layout({ usernameState,
+    setUsername, children}) {
     return (
         <div>
-            <MainNavBar />
-            <main>{props.children}</main>
+            <MainNavBar  usernameState={usernameState}
+              setUsername={setUsername}/>
+            <main>{children}</main>
         </div>
     )
 }

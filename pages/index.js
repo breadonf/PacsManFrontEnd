@@ -9,7 +9,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 // to do fetch task data with in progress status
- const fetcher = (url) => axios({ method: "get", url: url });
+const fetcher = (url) => axios({ method: "get", url: url });
+const apiUrl = "https://backend-productivity.herokuapp.com/tasks/api/get-home";
 
 /* const Dummy_tasks =[
   {
@@ -33,52 +34,17 @@ import Box from "@mui/material/Box";
 ] 
 */
 
-const getRecentApiUrl =
-  "https://backend-productivity.herokuapp.com/tasks/api/get-recent/5";
-
-const getUserNameApiUrl =
-  "https://backend-productivity.herokuapp.com/users/api/authenticate";
-
-const getOutstandingCountApiUrl =
-  "https://backend-productivity.herokuapp.com/tasks/api/get-outstanding";
-
-const getCompletedCountApiUrl =
-  "https://backend-productivity.herokuapp.com/tasks/api/get-completed";
-
-function Home() {
+function Home({usernameState}) {
   const userCtx = React.useContext(AppContext);
-  const apiUrl =
-    "https://backend-productivity.herokuapp.com/tasks/api/get-recent/5";
-  const router = useRouter();
-  React.useEffect(() => {
-    if (!userCtx.authenticated) {
-      router.push("/login");
-    }
-  });
 
-  const { data, error } = useSWR(apiUrl, fetcher);
-  console.log(data)
+  const router = useRouter();
+
+  const { data: dashboard , error } = useSWR(apiUrl, fetcher);
+
   if (error) {
-    return (
-      <>
-        <Box
-          sx={{
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <CircularProgress />
-        </Box>
-      </>
-    );
+    router.push("/login")
   }
-  if (!data) {
+  if (!dashboard) {
     return (
       <Box
         sx={{
@@ -96,53 +62,11 @@ function Home() {
       </Box>
     );
   }
-  let userName = {};
-  let outstandingCount = {};
-  let completedCount = {};
-  let recentTasks = {};
-
-  axios.all(
-    [
-      axios.get(getRecentApiUrl),
-      axios.get(getUserNameApiUrl),
-      axios.get(getOutstandingCountApiUrl),
-      axios.get(getCompletedCountApiUrl),
-    ]).then(
-      axios.spread((res1, res2, res3, res4) => {
-        recentTasks = res1;
-        userName = res2;
-        outstandingCount = res3;
-        completedCount = res4;
-        
-      })
-    );
-    console.log(recentTasks);
-  /* const { data: res1, error: err1 } = useSWR(getRecentApiUrl, fetcher);
-    const { data: res2, error: err2 } = useSWR(getUserNameApiUrl, fetcher);
-    const { data: res3, error: err3 } = useSWR(
-      getOutstandingCountApiUrl,
-      fetcher
-    );
-    const { data: res4, error: err4 } = useSWR(getCompletedCountApiUrl, fetcher);
- 
-  
-  try {
-  if (err1) {
-    return <div>Failed to load</div>;
-  }
-
-  if (!res1) return <div>Loading</div>;
-  else {*/
   return (
     <>
-    <HelloBox />
-    <TaskList tasks={data.data.message}/>
+      <HelloBox userName={dashboard.data.user.userName} outstandingCount={dashboard.data.outstandingNumber} completedCount={dashboard.data.completedNumber}/>
+      <TaskList tasks={dashboard.data.outstandingTask} />
     </>
   );
-  /*}} catch(e) {
-    console.log(e)
-  }*/
 }
-
 export default Home;
-//export default withAuth(Home);

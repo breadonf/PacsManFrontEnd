@@ -10,9 +10,9 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import {AppContext} from '../../store/app-context'
+import { AppContext } from "../../store/app-context";
 
-export default function MainNavBar() {
+export default function MainNavBar({usernameState, setUsername}) {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const userCtx = React.useContext(AppContext);
@@ -26,8 +26,10 @@ export default function MainNavBar() {
 
   const logoutHandler = () => {
     router.push("/");
-    window.localStorage.removeItem("currentUser");
-    userCtx.logout()
+    window.localStorage.removeItem("userID");
+    window.localStorage.removeItem("username");
+    userCtx.logout();
+    setUsername();
   };
   return (
     <header>
@@ -53,14 +55,16 @@ export default function MainNavBar() {
             >
               <Link href="/">PacsMan</Link>
             </Typography>
-
-            <Button color="inherit" onClick={logoutHandler}>
-              Logout
-            </Button>
-            <Button color="inherit">
-              <Link href="/login">Login</Link>
-            </Button>
-
+            {usernameState ? (
+              <Button color="inherit" onClick={logoutHandler}>
+                Logout
+              </Button>
+            ) : (
+              <Button color="inherit">
+                <Link href="/login">Login</Link>
+              </Button>
+            )}
+            
             <Menu
               id="menu-appbar"
               sx={{ minHeight: 200, display: "block" }}

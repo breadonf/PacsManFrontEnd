@@ -13,12 +13,11 @@ const LoginApiUrl =
 
 // const UserApiUrl = "https://backend-productivity.herokuapp.com/users/api/profile"
 
-function Login() {
+function Login({usernameState, setUsername}) {
   const router = useRouter();
   const userCtx = useContext(AppContext);
   async function loginHandler(loginInfo) {
     const { password, username } = loginInfo; 
-    console.log(password)
     try {
       await axios
         .post(
@@ -33,9 +32,11 @@ function Login() {
         )
         .then((res) => {
           userCtx.login(res.data.user)
-          window.localStorage.setItem("currentUser", res.data.token);
-          console.log((userCtx.authenticated))
-          router.push("/");
+          window.localStorage.setItem("userID", res.data.user._id);
+          window.localStorage.setItem("username", res.data.user.username);
+          console.log(usernameState)
+          setUsername(res.data.user.username)
+          router.replace("/");
         });
     } catch (e) {
       console.log(e);

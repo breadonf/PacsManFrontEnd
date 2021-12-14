@@ -392,7 +392,7 @@ export default function TaskForm(props) {
             </Grid>
 
             <Grid item xs={12} sx={{ pt: 10 }}>
-              <Link href="/Form">
+              <Link href="/form">
                 <Button
                   variant="contained"
                   color="secondary"

@@ -32,7 +32,7 @@ export default function HelloBox(props) {
                   borderRadius: 5,
                 }}
               >
-                {props.oustandingCount} Outstanding Task
+                {props.outstandingCount} Outstanding Task
               </Box>
               <Box
                 component="div"

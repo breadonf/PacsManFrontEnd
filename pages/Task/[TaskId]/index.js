@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import TaskDetail from "../../../components/tasks/taskDetail";
-import withAuth from "../../../lib/withAuth";
+import { AppContext } from "../../../store/app-context";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -21,18 +21,13 @@ const fetcher = (url) => axios({ method: "get", url: url });
 function Details() {
   const router = useRouter();
   const taskId = router.query.taskId;
-
-<<<<<<< HEAD
-  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${TaskId}`;
+  const userCtx = React.useContext(AppContext);
+  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${taskId}`;
   React.useEffect(() => {
     if (!userCtx.authenticated) {
-      router.push("/Login");
+      router.push("/login");
     }
   });
-=======
-  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${taskId}`;
-
->>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
   const { data, error } = useSWR(apiUrl, fetcher);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading</div>;
