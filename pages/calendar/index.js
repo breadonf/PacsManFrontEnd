@@ -1,0 +1,29 @@
+import React from "react";
+import TaskCalendar from "../../components/tasks/taskCalendar";
+import axios from 'axios';
+import useSWR from 'swr'
+
+
+
+const apiUrl = "https://backend-productivity.herokuapp.com/tasks/api/get-task/"
+
+const fetcher = url => axios({method: "get", url: url}).then(res => res.data.message)
+
+
+
+
+
+function Calendar() {
+  const {data:calendar, error} =useSWR(apiUrl, fetcher)
+  console.log(calendar)
+  if (error) {
+    console.log(error)
+    return <div>Failed to load</div>
+  }
+  if(!calendar) return <div>Loading</div>
+  return ( 
+    <TaskCalendar events = {calendar}/>
+  )
+}
+
+export default Calendar;
