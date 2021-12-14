@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import TaskItems from "./TaskItems";
+import TaskItems from "./taskItems";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 
@@ -16,10 +16,9 @@ const TaskList = (props) => {
           <Card raised sx={{ pb: 2, bgcolor: "lightblue" }}>
             <CardContent style={{ border: "1px solid lightgrey" }}>
               {props.tasks.map((task) => (
-                <Card key={task.id} variant="outlined">
+                <Card key={task._id} variant="outlined" sx={{p:2}}>
                   <TaskItems
-                    key={task.key}
-                    id={task.id}
+                    id={task._id}
                     status={task.status}
                     title={task.title}
                     deadline={task.deadline}

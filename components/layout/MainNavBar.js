@@ -62,7 +62,7 @@ export default function MainNavBar() {
                 Logout
               </Button>
            : <Button color="inherit">
-                <Link href="/Login">Login</Link>
+                <Link href="/login">Login</Link>
               </Button>
             }
 
@@ -83,13 +83,13 @@ export default function MainNavBar() {
                 <Link href="/">Home Page</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link href="/Table">Table View</Link>
+                <Link href="/table">Table View</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link href="/Calendar">Calendar View</Link>
+                <Link href="/calendar">Calendar View</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link href="/Form">Add Task</Link>
+                <Link href="/form">Add Task</Link>
               </MenuItem>
             </Menu>
           </Toolbar>

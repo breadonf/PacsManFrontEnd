@@ -1,12 +1,14 @@
 import React from "react";
 import withAuth from "../../lib/withAuth";
-import TaskForm from "../../components/tasks/TaskForm";
+import TaskForm from "../../components/tasks/taskForm";
 import axios from "axios";
+import useSWR from "swr";
+
 const apiUrl =
   "https://backend-productivity.herokuapp.com/tasks/api/create-task";
 
 const getOptionsUrl =
-  "https://backend-productivity.herokuapp.com/tasks/api/options";
+  "https://backend-productivity.herokuapp.com/users/api/options";
 
 const fetcher = (url) =>
   axios({ method: "get", url: url }).then((res) => res.data.message);

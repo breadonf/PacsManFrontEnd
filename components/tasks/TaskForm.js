@@ -21,14 +21,14 @@ import Link from "next/link";
 
 // todo: fetch users to select
 
-const fetchedTaskData = [
+/*const fetchedTaskData = [
   { user: "123" },
   { user: "hkchadmin" },
   { user: "handler" },
   { user: "issuer" },
   { user: "example" },
   { user: "example1" },
-];
+];*/
 
 /* const filterOptions = createFilterOptions({
   matchFrom: "start",
@@ -37,7 +37,7 @@ const fetchedTaskData = [
 
 export default function TaskForm(props) {
   const statusInputRef = useRef();
-  const titleInputRef = useRef("hi");
+  const titleInputRef = useRef();
   const categoryInputRef = useRef();
   const locationInputRef = useRef();
   const detailsInputRef = useRef();
@@ -106,18 +106,18 @@ export default function TaskForm(props) {
                   labelId="select-status"
                   id="status"
                   inputRef={statusInputRef}
-                  defaultValue={"Pending"}
+                  defaultValue={"pending"}
                 >
-                  <MenuItem value={"Pending"} key={"Pending"}>
+                  <MenuItem value={"pending"} key={"pending"}>
                     Pending
                   </MenuItem>
-                  <MenuItem value={"InProgress"} key={"InProgress"}>
+                  <MenuItem value={"inProgress"} key={"inProgress"}>
                     In Progress
                   </MenuItem>
-                  <MenuItem value={"Completed"} key={"Completed"}>
+                  <MenuItem value={"completed"} key={"completed"}>
                     Completed
                   </MenuItem>
-                  <MenuItem value={"Failed"} key={"Failed"}>
+                  <MenuItem value={"failed"} key={"failed"}>
                     Failed
                   </MenuItem>
                 </Select>
@@ -148,36 +148,33 @@ export default function TaskForm(props) {
                   labelId="select-category"
                   id="category"
                   inputRef={categoryInputRef}
-                  defaultValue={"it support"}
+                  defaultValue={"itSupport"}
                 >
-                  <MenuItem value={"it support"} key={"it support"}>
+                  <MenuItem value={"itSupport"} key={"itSupport"}>
                     IT support
                   </MenuItem>
-                  <MenuItem value={"error handling"} key={"error handling"}>
+                  <MenuItem value={"errorHandling"} key={"errorHandling"}>
                     Error handling
                   </MenuItem>
                   <MenuItem value={"documentation"} key={"documentation"}>
                     Documentation
                   </MenuItem>
                   <MenuItem
-                    value={"server maintainence"}
-                    key={"server maintainence"}
+                    value={"serverMaintainence"}
+                    key={"serverMaintainence"}
                   >
                     Server Maintainence
                   </MenuItem>
-                  <MenuItem value={"stock taking"} key={"stock taking"}>
+                  <MenuItem value={"stockTaking"} key={"stockTaking"}>
                     Stock Taking
                   </MenuItem>
                   <MenuItem
-                    value={"external film handling"}
-                    key={"external film handling"}
+                    value={"externalFilmHandling"}
+                    key={"externalFilmHandling"}
                   >
                     external film handling
                   </MenuItem>
-                  <MenuItem
-                    value={"export local film"}
-                    key={"export local film"}
-                  >
+                  <MenuItem value={"exportLocalFilm"} key={"exportLocalFilm"}>
                     export local film
                   </MenuItem>
                   <MenuItem value={"others"} key={"others"}>
@@ -257,27 +254,27 @@ export default function TaskForm(props) {
                   labelId="select-location"
                   id="location"
                   inputRef={locationInputRef}
-                  defaultValue={"PACS"}
+                  defaultValue={"pacs"}
                 >
-                  <MenuItem value={"PACS"} key={"PACS"}>
+                  <MenuItem value={"pacs"} key={"pacs"}>
                     PACS Room
                   </MenuItem>
-                  <MenuItem value={"XR"} key={"XR"}>
+                  <MenuItem value={"xr"} key={"xr"}>
                     General X-Ray Room
                   </MenuItem>
-                  <MenuItem value={"US"} key={"US"}>
+                  <MenuItem value={"us"} key={"us"}>
                     Ultrasound Exam Room
                   </MenuItem>
-                  <MenuItem value={"CT"} key={"CT"}>
+                  <MenuItem value={"ct"} key={"ct"}>
                     Computed Tomography Exam Room
                   </MenuItem>
-                  <MenuItem value={"MRI"} key={"MRI"}>
+                  <MenuItem value={"mri"} key={"mri"}>
                     Magnetic Resonance Imaging Exam Room
                   </MenuItem>
-                  <MenuItem value={"AIR"} key={"AIR"}>
+                  <MenuItem value={"air"} key={"air"}>
                     Angiograohy and Interventi onal Radiography Theatre
                   </MenuItem>
-                  <MenuItem value={"Report"} key={"Report"}>
+                  <MenuItem value={"report"} key={"report"}>
                     Reporting Area
                   </MenuItem>
                 </Select>
@@ -306,9 +303,9 @@ export default function TaskForm(props) {
                   options={props.users}
                   // getOptionLabel={(option) => option.user}
                   // filterOptions={filterOptions}
-                  isOptionEqualToValue={(option, value) =>
-                    option.id === value.id
-                  }
+                  // isOptionEqualToValue={(option, value) =>
+                  //  option.id === value.id
+                  // }
                   renderInput={(params) => (
                     <TextField
                       {...params}
@@ -329,9 +326,9 @@ export default function TaskForm(props) {
                   options={props.users}
                   //getOptionLabel={(option) => option.user}
                   // filterOptions={filterOptions}
-                  isOptionEqualToValue={(option, value) =>
-                    option.id === value.id
-                  }
+                  //isOptionEqualToValue={(option, value) =>
+                  // option.id === value.id
+                  //}
                   renderInput={(params) => (
                     <TextField
                       {...params}

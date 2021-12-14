@@ -13,7 +13,7 @@ export default function HelloBox(props) {
           <CardContent>
             <Grid item xs={12}>
               <Typography variant="h4" component="div">
-                Hello User!
+                Hello User {props.userName}!
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -32,7 +32,7 @@ export default function HelloBox(props) {
                   borderRadius: 5,
                 }}
               >
-                {props.count} Outstanding Task
+                {props.oustandingCount} Outstanding Task
               </Box>
               <Box
                 component="div"
@@ -44,7 +44,7 @@ export default function HelloBox(props) {
                   borderRadius: 5,
                 }}
               >
-                {props.count} Task Completed
+                {props.completedCount} Task Completed
               </Box>
             </div>
           </CardContent>

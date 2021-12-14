@@ -1,5 +1,5 @@
 import React from "react";
-import TaskTable from "../../components/tasks/TaskTable";
+import TaskTable from "../../components/tasks/taskTable";
 import axios from "axios";
 import useSWR from "swr";
 import withAuth from "../../lib/withAuth";
@@ -20,5 +20,6 @@ function Table() {
     console.log(data);
     return <TaskTable events={data} />;
   }
+}
 //export default Table;
 export default withAuth(Table);

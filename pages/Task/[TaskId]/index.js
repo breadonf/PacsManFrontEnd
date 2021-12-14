@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import TaskDetail from "../../../components/tasks/TaskDetail";
+import TaskDetail from "../../../components/tasks/taskDetail";
 import withAuth from "../../../lib/withAuth";
 import axios from "axios";
 import useSWR from "swr";
@@ -20,25 +20,26 @@ const fetcher = (url) => axios({ method: "get", url: url });
 
 function Details() {
   const router = useRouter();
-  const TaskId = router.query.TaskId;
+  const taskId = router.query.taskId;
 
-  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${TaskId}`;
+  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${taskId}`;
 
   const { data, error } = useSWR(apiUrl, fetcher);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading</div>;
+  console.log(data);
 
   return (
     <TaskDetail
-      status={data.status}
-      id={data.id}
-      title={data.title}
-      startDate={data.startDate}
-      endDate={data.endData}
-      deadline={data.deadline}
-      details={data.details}
-      issuer={data.issuer}
-      handler={data.handler}
+      status={data.data.task.status}
+      id={data.data.task._id}
+      title={data.data.task.title}
+      startDate={data.data.task.startDate}
+      endDate={data.data.task.endData}
+      deadline={data.data.task.deadline}
+      details={data.data.task.details}
+      issuer={data.data.task.issuer}
+      handler={data.data.task.handler}
     />
   );
 }

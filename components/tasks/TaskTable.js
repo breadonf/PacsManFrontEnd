@@ -129,23 +129,23 @@ const rows = [
 
 const columns = [
   { field: "status", headerName: "Status", width: 150 },
-  { field: "col2", headerName: "Title", width: 150 },
-  { field: "col3", headerName: "Category", width: 150 },
-  { field: "col4", headerName: "Urgent", width: 150 },
-  { field: "col5", headerName: "Start Date", width: 150 },
-  { field: "col6", headerName: "End Date", width: 150 },
-  { field: "col8", headerName: "Deadline", width: 150 },
-  { field: "col9", headerName: "Location", width: 150 },
-  { field: "col10", headerName: "Details", width: 150 },
-  { field: "col11", headerName: "Issuer", width: 150 },
-  { field: "col12", headerName: "Handler", width: 150 },
+  { field: "title", headerName: "Title", width: 150 },
+  { field: "category", headerName: "Category", width: 150 },
+  { field: "urgent", headerName: "Urgent", width: 150 },
+  { field: "startDate", headerName: "Start Date", width: 150 },
+  { field: "endDate", headerName: "End Date", width: 150 },
+  { field: "deadline", headerName: "Deadline", width: 150 },
+  { field: "location", headerName: "Location", width: 150 },
+  { field: "details", headerName: "Details", width: 150 },
+  { field: "issuer", headerName: "Issuer", width: 150 },
+  { field: "handler", headerName: "Handler", width: 150 },
 ];
 
 export default function TaskTable(props) {
   const router = useRouter();
 
   const RowClickHandler = (e) => {
-    router.push("./Task/" + props.id);
+    router.push("/task/" + e.id);
   };
 
   return (
@@ -153,8 +153,9 @@ export default function TaskTable(props) {
       <Grid item xs={12} sx={{ minHeight: 500 }}>
         <Card component="div" raised sx={{ height: "100%" }}>
           <DataGrid
+            getRowId={(row) => row._id}
             components={{ Toolbar: GridToolbar }}
-            rows={rows}
+            rows={props.events}
             columns={columns}
             autoHeight
             autoPageSize

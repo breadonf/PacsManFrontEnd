@@ -9,12 +9,12 @@ import Typography from "@mui/material/Typography";
 const TaskItems = (props) => {
   const router = useRouter();
 
-  function showDetailsHandler() {
-    router.push("./Task/" + props.id);
+  function ShowDetailsHandler() {
+    router.push("/task/" + props.id);
   }
 
   return (
-      <CardActionArea xs={{ m: 2 }} onClick={showDetailsHandler}>
+      <CardActionArea xs={{ m: 2 }} onClick={ShowDetailsHandler}>
         <Grid item xs={10}>
           <Typography variant="h5" component="div">
             Task:
@@ -47,12 +47,6 @@ const TaskItems = (props) => {
             </Typography>
           </Box>
         </Grid>
-        <Box component="div" sx={{ display: "inline" }}>
-          <Typography variant="body2">
-            Details:
-            {props.details}
-          </Typography>
-        </Box>
         <br></br>
       </CardActionArea>
   );

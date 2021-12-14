@@ -17,7 +17,7 @@ export default function LoginForm(props) {
   //const [newPassword, setPassword] = useState();
 
   const router = useRouter();
-  function submitHandler(event) {
+  function SubmitHandler(event) {
     event.preventDefault();
     const enteredUserName = userNameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
@@ -101,7 +101,7 @@ export default function LoginForm(props) {
                   type="submit"
                   aria-label="submit"
                   endIcon={<SendAndArchiveIcon />}
-                  onClick={submitHandler}
+                  onClick={SubmitHandler}
                 >
                   Submit
                 </Button>
