@@ -21,6 +21,17 @@ const localizer = dateFnsLocalizer({
 });
 
 function TaskCalendar(props) {
+
+  props.events.forEach(event => {
+    event["startDate"] = new Date((event["startDate"]))
+
+  })
+  props.events.forEach(event => {
+    event["endDate"] = new Date((event["endDate"]))
+
+  })
+  
+  
   return (
     <Paper sx={{ m: 4, p: 2 }}>
       <Calendar
