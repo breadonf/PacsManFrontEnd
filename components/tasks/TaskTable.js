@@ -3,16 +3,16 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid/";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/router";
-
+import { Button } from '@mui/material'
+import axios from 'axios'
 // mui datatable is used for displaying tasks details, the columns are defined here
 async function apiDeleteHandler(id) {
   const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/delete-task/${id}`;
   await axios
     .delete(apiUrl)
-    .then((res, req) => console.log(req))
+    .then((res, req) => console.log(res))
     .catch((error) => console.log(error));
 }
-
 const columns = [
   { field: "status", headerName: "Status", width: 150 },
   { field: "title", headerName: "Title", width: 150 },
@@ -31,12 +31,21 @@ const columns = [
     width: 150,
     renderCell: (params) => {
       const deleteHandler = (e) => {
-        console.log(e);
-        apiDeleteHandler(e.data.task._id);
+        e.stopPropagation()
+      
+        const api = params.api
+        const thisRow = {};
+        api.getAllColumns()
+        .filter((c) => c.field !== "__check__" && !!c)
+        .forEach(
+          (c) => (thisRow[c.field] = params.getValue(params.id, c.field))
+        );
+        let res = apiDeleteHandler(params.id)
+        return alert(JSON.stringify(res));
       };
       return (
         <Button variant="outlined" onClick={deleteHandler}>
-          Delete
+          <a href={'/'}>Delete</a>
         </Button>
       );
     },
