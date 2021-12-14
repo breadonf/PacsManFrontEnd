@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useContext } from 'react';
-import AppContext from "../lib/AppContext";
 
 function withAuth(WrappedComponent) {
   
@@ -9,7 +8,6 @@ function withAuth(WrappedComponent) {
   if (typeof window !== "undefined") {
       
       const accessToken = window.localStorage.getItem("currentUser");
-      console.log(accessToken)
       if (!accessToken) {
         const router = useRouter()
         router.replace("/Login");
