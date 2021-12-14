@@ -12,6 +12,10 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import {AppContext} from '../../store/app-context'
 
+// navbar containing a menu anchored to a icon, where each item is a next js router to different pages. the menu would be closed upon clicking
+// the navbar title is a link routed to the home page
+//conditional render for login/logout button which appears accordingly
+
 export default function MainNavBar() {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);

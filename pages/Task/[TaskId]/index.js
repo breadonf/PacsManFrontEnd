@@ -1,9 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import TaskDetail from "../../../components/tasks/taskDetail";
-import withAuth from "../../../lib/withAuth";
 import axios from "axios";
 import useSWR from "swr";
+
+// dynamic routing where in the url with specific taskid can show the corresponding task details
 
 const fetcher = (url) => axios({ method: "get", url: url });
 /*const data = {
@@ -22,17 +23,8 @@ function Details() {
   const router = useRouter();
   const taskId = router.query.taskId;
 
-<<<<<<< HEAD
-  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${TaskId}`;
-  React.useEffect(() => {
-    if (!userCtx.authenticated) {
-      router.push("/Login");
-    }
-  });
-=======
   const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${taskId}`;
 
->>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
   const { data, error } = useSWR(apiUrl, fetcher);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading</div>;

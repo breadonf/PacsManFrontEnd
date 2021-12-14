@@ -7,6 +7,8 @@ import Paper from "@mui/material/Paper";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
+// react big calendar library is used for display the tasks in calendar view
+
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
 };

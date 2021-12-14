@@ -4,6 +4,9 @@ import { useRouter } from "next/router";
 import React, { useContext} from 'react';
 import AppContext from '../lib/AppContext';
 
+// a global utility for authenticating user with entered username and password
+// a cookie access token is stored in local storage
+// user is pushed to login page without the token
 
 axios.defaults.withCredentials = true;
 

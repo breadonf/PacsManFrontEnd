@@ -11,6 +11,7 @@ import InputLabel from "@mui/material/InputLabel";
 import { useContext} from 'react';
 import {AppContext} from '../../store/app-context';
 
+//login form where the login details is passed to the onlogin function
 
 export default function LoginForm(props) {
   //const [newUserName, setUserName] = useState();
