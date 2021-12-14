@@ -21,7 +21,7 @@ function Calendar() {
   }
   if(!data) return <div>Loading</div>
   return ( 
-    <TaskCalendar /*events = {data}*//>
+    <TaskCalendar events = {data}/>
   )
 }
 

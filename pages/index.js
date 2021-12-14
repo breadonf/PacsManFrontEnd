@@ -57,6 +57,7 @@ function Home() {
   });
 
   const { data, error } = useSWR(apiUrl, fetcher);
+  console.log(data)
   if (error) {
     return (
       <>
@@ -134,7 +135,8 @@ function Home() {
   else {*/
   return (
     <>
-   
+    <HelloBox />
+    <TaskList tasks={data.data.message}/>
     </>
   );
   /*}} catch(e) {
