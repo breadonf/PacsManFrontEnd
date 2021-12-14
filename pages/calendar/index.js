@@ -14,14 +14,15 @@ const fetcher = url => axios({method: "get", url: url}).then(res => res.data.mes
 
 
 function Calendar() {
-  const {data, error} =useSWR(apiUrl, fetcher)
+  const {data:calendarEvent, error} =useSWR(apiUrl, fetcher)
+  console.log(calendarEvent)
   if (error) {
     console.log(error)
     return <div>Failed to load</div>
   }
-  if(!data) return <div>Loading</div>
+  if(!calendarEvent) return <div>Loading</div>
   return ( 
-    <TaskCalendar events = {data}/>
+    <TaskCalendar events = {calendarEvent}/>
   )
 }
 
