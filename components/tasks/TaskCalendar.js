@@ -3,6 +3,7 @@ import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import React, { useState } from "react";
+import Paper from "@mui/material/Paper";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -17,10 +18,9 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-
 function TaskCalendar(props) {
   return (
-    <div>
+    <Paper sx={{ m: 4, p: 2 }}>
       <Calendar
         localizer={localizer}
         events={props.events}
@@ -28,7 +28,7 @@ function TaskCalendar(props) {
         endAccessor="endDate"
         style={{ height: 500, margin: "50px" }}
       />
-    </div>
+    </Paper>
   );
 }
 

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import LoginForm from "../../components/login/LoginForm";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import {AppContext} from '../../store/app-context'
+=======
+import React from "react";
+import LoginForm from "../../components/login/loginForm";
+import loginHandler from "../../lib/auth"
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
 
 
 axios.defaults.withCredentials = true;

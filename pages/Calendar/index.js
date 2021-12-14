@@ -1,5 +1,5 @@
 import React from "react";
-import TaskCalendar from "../../components/tasks/TaskCalendar";
+import TaskCalendar from "../../components/tasks/taskCalendar";
 import withAuth from "../../lib/withAuth";
 import axios from 'axios';
 import useSWR from 'swr'

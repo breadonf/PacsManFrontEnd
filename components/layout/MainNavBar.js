@@ -55,12 +55,23 @@ export default function MainNavBar() {
               <Link href="/">PacsMan</Link>
             </Typography>
 
+<<<<<<< HEAD
             <Button color="inherit" onClick={logoutHandler}>
               Logout
             </Button>
             <Button color="inherit">
               <Link href="/Login">Login</Link>
             </Button>
+=======
+           {isAuthenticated 
+           ? <Button color="inherit" onClick={logoutHandler}>
+                Logout
+              </Button>
+           : <Button color="inherit">
+                <Link href="/login">Login</Link>
+              </Button>
+            }
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
 
             <Menu
               id="menu-appbar"
@@ -79,13 +90,13 @@ export default function MainNavBar() {
                 <Link href="/">Home Page</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link href="/Table">Table View</Link>
+                <Link href="/table">Table View</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link href="/Calendar">Calendar View</Link>
+                <Link href="/calendar">Calendar View</Link>
               </MenuItem>
               <MenuItem onClick={handleClose}>
-                <Link href="/Form">Add Task</Link>
+                <Link href="/form">Add Task</Link>
               </MenuItem>
             </Menu>
           </Toolbar>
