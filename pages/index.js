@@ -44,7 +44,7 @@ function Home({ usernameState }) {
   return (
     <>
       <HelloBox
-        userName={dashboard.data.user.userName}
+        userName={dashboard.data.user.username}
         outstandingCount={dashboard.data.outstandingNumber}
         completedCount={dashboard.data.completedNumber}
       />
