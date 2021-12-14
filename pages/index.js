@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import HelloBox from "../components/homeComponents/hello";
+<<<<<<< HEAD
+import TaskList from "../components/tasks/TaskList";
+=======
 import TaskList from "../components/tasks/taskList";
 import withAuth from "../lib/withAuth";
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
 import axios from "axios";
 import useSWR from "swr";
-
+import { useRouter } from "next/router";
+import { AppContext } from "../store/app-context";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 // to do fetch task data with in progress status
 // const fetcher = (url) => axios({ method: "get", url: url });
 
@@ -43,6 +50,57 @@ const getCompletedCountApiUrl =
   "https://backend-productivity.herokuapp.com/tasks/api/get-completed";
 
 function Home() {
+<<<<<<< HEAD
+  const userCtx = React.useContext(AppContext);
+  const apiUrl =
+    "https://backend-productivity.herokuapp.com/tasks/api/get-recent/5";
+  const router = useRouter();
+  React.useEffect(() => {
+    if (!userCtx.authenticated) {
+      router.push("/Login");
+    }
+  });
+
+  const { data, error } = useSWR(apiUrl, fetcher);
+  if (error) {
+    return (
+      <>
+        <Box
+          sx={{
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            position: "absolute",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      </>
+    );
+  }
+  if (!data) {
+    return (
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+=======
   let userName = {};
   let outstandingCount = {};
   let completedCount = {};
@@ -80,6 +138,7 @@ function Home() {
 
   if (!res1) return <div>Loading</div>;
   else {*/
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
   return (
     <>
       <HelloBox
@@ -95,5 +154,5 @@ function Home() {
   }*/
 }
 
-//export default Home;
-export default withAuth(Home);
+export default Home;
+//export default withAuth(Home);

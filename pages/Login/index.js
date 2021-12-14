@@ -1,13 +1,54 @@
+<<<<<<< HEAD
+import LoginForm from "../../components/login/LoginForm";
+import axios from "axios";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
+import {AppContext} from '../../store/app-context'
+=======
 import React from "react";
 import LoginForm from "../../components/login/loginForm";
 import loginHandler from "../../lib/auth"
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
+
+
+axios.defaults.withCredentials = true;
+
+const LoginApiUrl =
+  "https://backend-productivity.herokuapp.com/users/api/authenticate";
+//const LoginApiUrl = "http://localhost:3001/users/api/authenticate"
+
+// const UserApiUrl = "https://backend-productivity.herokuapp.com/users/api/profile"
 
 function Login() {
+  const router = useRouter();
+  const userCtx = useContext(AppContext);
+  async function loginHandler(loginInfo) {
+    const { password, username } = loginInfo; 
+    console.log(password)
+    try {
+      await axios
+        .post(
+          LoginApiUrl,
+          { username: username, password: password },
+          {
+            headers: {
+              "Access-Control-Allow-Origin": "http://localhost:3000",
+              "Access-Control-Allow-Methods": "POST",
+            },
+          }
+        )
+        .then((res) => {
+          userCtx.login(res.data.user)
+          window.localStorage.setItem("currentUser", res.data.token);
+          console.log((userCtx.authenticated))
+          router.push("/");
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
-
-  return (
-      <LoginForm onLogin={loginHandler} />
-  );
+  return <LoginForm onLogin={loginHandler} />;
 }
 
 export default Login;

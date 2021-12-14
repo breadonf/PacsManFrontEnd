@@ -10,13 +10,12 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { isAuthenticated } from "../../lib/auth";
-
+import {AppContext} from '../../store/app-context'
 
 export default function MainNavBar() {
   const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const userCtx = React.useContext(AppContext);
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -27,11 +26,10 @@ export default function MainNavBar() {
 
   const logoutHandler = () => {
     router.push("/");
-    window.localStorage.removeItem("currentUser")
-    isAuthenticated = false
-    ;
+    window.localStorage.removeItem("currentUser");
+    userCtx.logout()
   };
-
+  
   return (
     <header>
       <Box sx={{ flexGrow: 1 }}>
@@ -57,6 +55,14 @@ export default function MainNavBar() {
               <Link href="/">PacsMan</Link>
             </Typography>
 
+<<<<<<< HEAD
+            <Button color="inherit" onClick={logoutHandler}>
+              Logout
+            </Button>
+            <Button color="inherit">
+              <Link href="/Login">Login</Link>
+            </Button>
+=======
            {isAuthenticated 
            ? <Button color="inherit" onClick={logoutHandler}>
                 Logout
@@ -65,6 +71,7 @@ export default function MainNavBar() {
                 <Link href="/login">Login</Link>
               </Button>
             }
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
 
             <Menu
               id="menu-appbar"

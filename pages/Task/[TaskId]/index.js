@@ -22,8 +22,17 @@ function Details() {
   const router = useRouter();
   const taskId = router.query.taskId;
 
+<<<<<<< HEAD
+  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${TaskId}`;
+  React.useEffect(() => {
+    if (!userCtx.authenticated) {
+      router.push("/Login");
+    }
+  });
+=======
   const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/get-task/${taskId}`;
 
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
   const { data, error } = useSWR(apiUrl, fetcher);
   if (error) return <div>Failed to load</div>;
   if (!data) return <div>Loading</div>;
@@ -44,5 +53,5 @@ function Details() {
   );
 }
 
-//export default Details;
-export default withAuth(Details);
+export default Details;
+

@@ -8,6 +8,9 @@ import Input from "@mui/material/Input";
 import Button from "@mui/material/Button";
 import SendAndArchiveIcon from "@mui/icons-material/SendAndArchive";
 import InputLabel from "@mui/material/InputLabel";
+import { useContext} from 'react';
+import {AppContext} from '../../store/app-context';
+
 
 export default function LoginForm(props) {
   //const [newUserName, setUserName] = useState();
@@ -15,7 +18,9 @@ export default function LoginForm(props) {
   const userNameInputRef = useRef();
   const passwordInputRef = useRef();
   //const [newPassword, setPassword] = useState();
-
+  const value = useContext(AppContext)
+  console.log(value)
+  
   const router = useRouter();
   function SubmitHandler(event) {
     event.preventDefault();
@@ -33,7 +38,7 @@ export default function LoginForm(props) {
       };
 
       props.onLogin(loginData).then(() => {
-        console.log((window.localStorage.getItem('currentUser')))
+        //setAuthenticated=true
         router.push("/");
       });
     }

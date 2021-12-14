@@ -153,9 +153,15 @@ export default function TaskTable(props) {
       <Grid item xs={12} sx={{ minHeight: 500 }}>
         <Card component="div" raised sx={{ height: "100%" }}>
           <DataGrid
+<<<<<<< HEAD
+            getRowId = {(row)=> row._id}
+            components={{ Toolbar: GridToolbar }}
+            rows={events.data}
+=======
             getRowId={(row) => row._id}
             components={{ Toolbar: GridToolbar }}
             rows={props.events}
+>>>>>>> a5173433b79fad56b0916a31c8b91e3f3b174330
             columns={columns}
             autoHeight
             autoPageSize
