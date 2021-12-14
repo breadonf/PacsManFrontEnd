@@ -5,6 +5,8 @@ import TaskItems from "./taskItems";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 
+// a wraper of recent task items. where each task fetched from database would passed to the taskitem.js
+
 const TaskList = (props) => {
   return (
     <Grid item xs={12}>
@@ -24,6 +26,8 @@ const TaskList = (props) => {
                     deadline={task.deadline}
                     issuer={task.issuer}
                     handler={task.handler}
+                    category={task.category}
+                    location={task.location}
                   />
                 </Card>
               ))}

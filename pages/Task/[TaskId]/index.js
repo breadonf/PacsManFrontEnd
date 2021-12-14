@@ -5,6 +5,8 @@ import { AppContext } from "../../../store/app-context";
 import axios from "axios";
 import useSWR from "swr";
 
+// dynamic routing where in the url with specific taskid can show the corresponding task details
+
 const fetcher = (url) => axios({ method: "get", url: url });
 /*const data = {
   status: "Completed",

@@ -5,15 +5,17 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
+// A component to display username, number of outstanding and completed tasks.
+
 export default function HelloBox(props) {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} sx={{pb:2}}>
+      <Grid item xs={12} sx={{ pb: 2 }}>
         <Card raised>
           <CardContent>
             <Grid item xs={12}>
               <Typography variant="h4" component="div">
-                Hello User {props.userName}!
+                Hello {props.userName}!
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -21,7 +23,7 @@ export default function HelloBox(props) {
                 You have:
               </Typography>
             </Grid>
-            <div style={{ width: "100%", padding: 20,}}>
+            <div style={{ width: "100%", padding: 20 }}>
               <Box
                 component="div"
                 sx={{

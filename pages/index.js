@@ -8,41 +8,20 @@ import { AppContext } from "../store/app-context";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-// to do fetch task data with in progress status
 const fetcher = (url) => axios({ method: "get", url: url });
 const apiUrl = "https://backend-productivity.herokuapp.com/tasks/api/get-home";
 
-/* const Dummy_tasks =[
-  {
-    id:'t1',
-    key:"1",
-    title:'task1',
-    status: 'in Progress',
-    deadline: '11-11-2021',
-    issuer: 'brendon',
-    handler: 'will',
-  },
-  {
-    id:'t2',
-    key:"2",
-    title:'task2',
-    status: 'in Progress',
-    deadline: '12-11-2021',
-    issuer: 'will',
-    handler: 'brendon',
-  }
-] 
-*/
+// Home page where 5 recent tasks, username, number of outstanding tasks and completed tasks are received from the database
 
-function Home({usernameState}) {
+function Home({ usernameState }) {
   const userCtx = React.useContext(AppContext);
 
   const router = useRouter();
 
-  const { data: dashboard , error } = useSWR(apiUrl, fetcher);
+  const { data: dashboard, error } = useSWR(apiUrl, fetcher);
 
   if (error) {
-    router.push("/login")
+    router.push("/login");
   }
   if (!dashboard) {
     return (
@@ -64,7 +43,11 @@ function Home({usernameState}) {
   }
   return (
     <>
-      <HelloBox userName={dashboard.data.user.userName} outstandingCount={dashboard.data.outstandingNumber} completedCount={dashboard.data.completedNumber}/>
+      <HelloBox
+        userName={dashboard.data.user.userName}
+        outstandingCount={dashboard.data.outstandingNumber}
+        completedCount={dashboard.data.completedNumber}
+      />
       <TaskList tasks={dashboard.data.outstandingTask} />
     </>
   );

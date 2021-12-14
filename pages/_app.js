@@ -4,6 +4,9 @@ import { AppProvider } from "../store/app-context";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Login from "../pages/login";
+
+
+// the pages are wrapped with layout component
 function MyApp({ Component, pageProps }) {
   const [usernameState, setUsername] = useState(false);
 

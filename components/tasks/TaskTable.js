@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import { useRouter } from "next/router";
 
+// mui datatable is used for displaying tasks details, the columns are defined here
 
 const columns = [
   { field: "status", headerName: "Status", width: 150 },

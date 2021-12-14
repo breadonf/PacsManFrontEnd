@@ -1,5 +1,5 @@
 import React from "react";
-import TaskTable from "../../components/tasks/TaskTable";
+import TaskTable from "../../components/tasks/taskTable";
 import axios from "axios";
 import useSWR from "swr";
 const apiUrl = "https://backend-productivity.herokuapp.com/tasks/api/get-task/";

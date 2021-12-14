@@ -6,6 +6,8 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
+// upon clicking on homepage or task table page. the details of the task would be shown here
+
 export default function TaskDetail(props) {
   return (
     <Grid container sx={{ p: 2 }}>

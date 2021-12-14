@@ -19,7 +19,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Paper from "@mui/material/Paper";
 import Link from "next/link";
 
-// todo: fetch users to select
+// A form for adding task to the database, where users is fetched from database for autocompleting
 
 /*const fetchedTaskData = [
   { user: "123" },
