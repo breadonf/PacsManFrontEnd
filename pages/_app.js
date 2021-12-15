@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
 
     if (authCheck) {
       fetch(
-        `https://backend-productivity.herokuapp.com/users/api/authenticate/${authCheck}`
+        `https://backend-productivity.herokuapp.com/users/api/authenticate/${authCheck}`, {method: 'POST'}
       )
         .then((res) => res.json())
         .then((data) => {
