@@ -272,7 +272,7 @@ export default function TaskForm(props) {
                     Magnetic Resonance Imaging Exam Room
                   </MenuItem>
                   <MenuItem value={"air"} key={"air"}>
-                    Angiograohy and Interventi onal Radiography Theatre
+                    Angiograohy and Interventional Radiography Theatre
                   </MenuItem>
                   <MenuItem value={"report"} key={"report"}>
                     Reporting Area

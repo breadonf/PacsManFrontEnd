@@ -15,49 +15,43 @@ const TaskItems = (props) => {
     router.push("/task/" + props.id);
   }
   const date = new Date(props.deadline).toDateString()
+  console.log(date)
   return (
     <CardActionArea xs={{ m: 2 }} onClick={ShowDetailsHandler}>
       <Grid item xs={10}>
         <Typography variant="h5" component="div">
-          Task:
-          {props.title}
+          Task: {props.title}
         </Typography>
       </Grid>
       <Grid container>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Status:
-            {props.status}
+            Status: {props.status}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Deadline:
-            {props.deadline}
+            Deadline: {props.deadline}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Category:
-            {props.category}
+            Category: {props.category}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Location:
-            {props.location}
+            Location: {props.location}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Issuer:
-            {props.issuer}
+            Issuer: {props.issuer}
           </Typography>
         </Grid>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Handler:
-            {props.handler}
+            Handler: {props.handler}
           </Typography>
         </Grid>
       </Grid>
