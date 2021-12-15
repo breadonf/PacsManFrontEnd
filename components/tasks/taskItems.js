@@ -14,7 +14,7 @@ const TaskItems = (props) => {
   function ShowDetailsHandler() {
     router.push("/task/" + props.id);
   }
-
+  const date = new Date(props.deadline).toDateString()
   return (
     <CardActionArea xs={{ m: 2 }} onClick={ShowDetailsHandler}>
       <Grid item xs={10}>
@@ -33,7 +33,7 @@ const TaskItems = (props) => {
         <Grid item xs={5}>
           <Typography variant="body2">
             Deadline:
-            {Date(props.deadline)}
+            {date}
           </Typography>
         </Grid>
         <Grid item xs={5}>
