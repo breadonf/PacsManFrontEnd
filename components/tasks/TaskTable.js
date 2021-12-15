@@ -61,7 +61,7 @@ export default function TaskTable(props) {
 
   return (
     <Grid container>
-      <Grid item xs={12} sx={{ minHeight: 500 }}>
+      <Grid item xs={12} sx={{ minHeight: 700 }}>
         <Card component="div" raised sx={{ height: "100%" }}>
           <DataGrid
             getRowId={(row) => row._id}
