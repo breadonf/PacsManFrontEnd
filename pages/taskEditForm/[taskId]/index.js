@@ -18,8 +18,9 @@ const fetcher = (url) => axios({ method: "post", url: url });
   issuer: "TP",
   handler: "Brendon",
 };*/
-const apiUrl =  `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`;
+
 function EditDetails() {
+  const apiUrl =  `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`;
   const router = useRouter();
   const taskId = router.query.taskId;
   const userCtx = React.useContext(AppContext);
