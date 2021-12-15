@@ -33,7 +33,7 @@ const TaskItems = (props) => {
         <Grid item xs={5}>
           <Typography variant="body2">
             Deadline:
-            {new Date(props.deadline)}
+            {Date(props.deadline)}
           </Typography>
         </Grid>
         <Grid item xs={5}>
