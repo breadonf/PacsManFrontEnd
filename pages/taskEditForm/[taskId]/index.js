@@ -20,9 +20,10 @@ const fetcher = (url) => axios({ method: "post", url: url });
 };*/
 
 function EditDetails() {
+  const router = useRouter();
   const taskId = router.query.taskId;
   const apiUrl =  `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`;
-  const router = useRouter();
+  
   const userCtx = React.useContext(AppContext);
 
   async function editHandler(enteredEditedTaskData) {
