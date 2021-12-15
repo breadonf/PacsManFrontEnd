@@ -73,7 +73,7 @@ const columns = [
       console.log(editID)
       return (
         <Button variant="outlined" onClick={editHandler}>
-          <a href={`/edit/${editID}`}>Edit</a>
+          <a href={`/edit/123`}>Edit</a>
         </Button>
       );
     },
