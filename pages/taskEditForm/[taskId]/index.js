@@ -28,7 +28,7 @@ function EditDetails() {
   function editHandler () {
     try{
       fetch(
-        `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`, {method: 'POST'}
+        `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`, {method: 'PUT'}
       )
         .then((res) => res.json())
     } catch(e) {
