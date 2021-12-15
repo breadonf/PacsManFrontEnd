@@ -290,52 +290,7 @@ export default function TaskEditForm(props) {
               </FormControl>
             </Grid>
             <Grid item xs={1}></Grid>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={10}>
-              <FormControl fullWidth>
-                <Autocomplete
-                  id="issuer"
-                  loading
-                  options={props.users}
-                  // getOptionLabel={(option) => option.user}
-                  // filterOptions={filterOptions}
-                  // isOptionEqualToValue={(option, value) =>
-                  //  option.id === value.id
-                  // }
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Issuer"
-                      inputRef={issuerInputRef}
-                    />
-                  )}
-                />
-              </FormControl>
-            </Grid>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={10}>
-              <FormControl fullWidth>
-                <Autocomplete
-                  id="handler"
-                  loading
-                  options={props.users}
-                  //getOptionLabel={(option) => option.user}
-                  // filterOptions={filterOptions}
-                  //isOptionEqualToValue={(option, value) =>
-                  // option.id === value.id
-                  //}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Handler"
-                      inputRef={handlerInputRef}
-                    />
-                  )}
-                />
-              </FormControl>
-            </Grid>
-            <Grid item xs={1}></Grid>
+            
             <Grid item xs={3}></Grid>
             <Grid item xs={3}>
               <FormControl fullWidth>
