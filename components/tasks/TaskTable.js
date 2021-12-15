@@ -26,7 +26,7 @@ const columns = [
   { field: "issuer", headerName: "Issuer", width: 150 },
   { field: "handler", headerName: "Handler", width: 150 },
   {
-    field: "",
+    field: "1",
     headerName: "Delete",
     width: 150,
     renderCell: (params) => {
@@ -40,8 +40,8 @@ const columns = [
         .forEach(
           (c) => (thisRow[c.field] = params.getValue(params.id, c.field))
         );
-        
-        return alert(apiDeleteHandler(params.id));
+        apiDeleteHandler(params.id)
+        return alert(params.id);
       };
       return (
         <Button variant="outlined" onClick={deleteHandler}>
@@ -50,34 +50,6 @@ const columns = [
       );
     },
   },
-  {
-    field: "",
-    headerName: "Edit",
-    width: 150,
-    renderCell: (params) => {
-      const editID = ""
-      const editHandler = (e) => {
-        e.stopPropagation()
-      
-        const api = params.api
-        const thisRow = {};
-        api.getAllColumns()
-        .filter((c) => c.field !== "__check__" && !!c)
-        .forEach(
-          (c) => (thisRow[c.field] = params.getValue(params.id, c.field))
-        );
-        const editIDs = (params.id)
-        editID = editIDs
-        return alert(editIDs);
-      };
-      console.log(editID)
-      return (
-        <Button variant="outlined" onClick={editHandler}>
-          <a href={`/edit/123`}>Edit</a>
-        </Button>
-      );
-    },
-  }
 ];
 
 export default function TaskTable(props) {

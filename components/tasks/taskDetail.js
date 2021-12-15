@@ -74,6 +74,11 @@ export default function TaskDetail(props) {
               </Typography>
             </Grid>
           </Grid>
+          <Grid item xs={12} sx={{ pt: 4, pb: 2 }}>
+              <Link href={`/taskEditForm/${props.id}`}>
+                <Button variant="contained">Edit</Button>
+              </Link>
+            </Grid>
         </CardContent>
       </Card>
     </Grid>
