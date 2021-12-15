@@ -20,7 +20,7 @@ const fetcher = (url) => axios({ method: "update", url: url });
   handler: "Brendon",
 };*/
 
-function editDetails() {
+function EditDetails() {
   const router = useRouter();
   const taskId = router.query.taskId;
   const userCtx = React.useContext(AppContext);
@@ -45,4 +45,4 @@ function editDetails() {
   );
 }
 
-export default editDetails;
+export default EditDetails;
