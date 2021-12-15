@@ -7,7 +7,7 @@ import useSWR from "swr";
 
 // dynamic routing where in the url with specific taskid can show the corresponding task details
 
-const fetcher = (url) => axios({ method: "get", url: url });
+const fetcher = (url) => axios({ method: "get", url: url }).then((res) => res.data.message);
 /*const data = {
   status: "Completed",
   id: "t5",
@@ -47,9 +47,9 @@ function EditDetails() {
   if (!data) return <div>Loading</div>;
 
   return (
-    <div>
-      <TaskEditForm onEditTask={editHandler} user={data}/>
-    </div>
+
+      <TaskEditForm onEditTask={editHandler} user={data} />
+
   );
 }
 
