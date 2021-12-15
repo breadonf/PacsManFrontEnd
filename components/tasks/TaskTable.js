@@ -41,7 +41,7 @@ const columns = [
           (c) => (thisRow[c.field] = params.getValue(params.id, c.field))
         );
         let res = apiDeleteHandler(params.id)
-        return alert(JSON.stringify(res));
+        return alert(res));
       };
       return (
         <Button variant="outlined" onClick={deleteHandler}>
