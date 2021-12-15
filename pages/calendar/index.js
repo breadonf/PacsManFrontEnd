@@ -2,7 +2,8 @@ import React from "react";
 import TaskCalendar from "../../components/tasks/taskCalendar";
 import axios from 'axios';
 import useSWR from 'swr'
-
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 
 const apiUrl = "https://backend-productivity.herokuapp.com/tasks/api/get-task/"
@@ -19,7 +20,24 @@ function Calendar() {
     console.log(error)
     return <div>Failed to load</div>
   }
-  if(!calendarEvent) return <div>Loading</div>
+  if(!calendarEvent) {
+    return (
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
   return ( 
     <TaskCalendar events = {calendarEvent}/>
   )
