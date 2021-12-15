@@ -3,10 +3,11 @@ import { useRouter } from "next/router";
 import { AppContext } from "../../../store/app-context";
 import axios from "axios";
 import TaskEditForm from "../../../components/tasks/taskEditForm";
+import useSWR from "swr";
 
 // dynamic routing where in the url with specific taskid can show the corresponding task details
 
-const fetcher = (url) => axios({ method: "post", url: url });
+const fetcher = (url) => axios({ method: "get", url: url });
 /*const data = {
   status: "Completed",
   id: "t5",
@@ -18,6 +19,8 @@ const fetcher = (url) => axios({ method: "post", url: url });
   issuer: "TP",
   handler: "Brendon",
 };*/
+const getOptionsUrl =
+  "https://backend-productivity.herokuapp.com/users/api/options";
 
 function EditDetails() {
   const router = useRouter();
@@ -39,10 +42,13 @@ function EditDetails() {
       router.push("/login");
     }
   });
+  const { data, error } = useSWR(getOptionsUrl, fetcher);
+  if (error) return <div>Failed to load</div>;
+  if (!data) return <div>Loading</div>;
 
   return (
     <div>
-      <TaskEditForm onEditTask={editHandler}/>
+      <TaskEditForm onEditTask={editHandler} user={data}/>
     </div>
   );
 }
