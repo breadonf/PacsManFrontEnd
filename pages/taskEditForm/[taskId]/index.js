@@ -7,7 +7,7 @@ import TaskEditForm from "../../../components/tasks/taskEditForm";
 
 // dynamic routing where in the url with specific taskid can show the corresponding task details
 
-const fetcher = (url) => axios({ method: "update", url: url });
+const fetcher = (url) => axios({ method: "post", url: url });
 /*const data = {
   status: "Completed",
   id: "t5",
@@ -24,13 +24,18 @@ function EditDetails() {
   const router = useRouter();
   const taskId = router.query.taskId;
   const userCtx = React.useContext(AppContext);
-  const apiUrl = `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`;
 
   function editHandler () {
-    const { data, error } = useSWR(apiUrl, fetcher);
-    if (error) return <div>Failed to load</div>;
-    if (!data) return <div>Loading</div>;
-    console.log(data);}
+    try{
+      fetch(
+        `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`, {method: 'POST'}
+      )
+        .then((res) => res.json())
+    } catch(e) {
+      console.log(e)
+      return <div>Failed to load</div>;
+    }
+  }
   
   React.useEffect(() => {
     if (!userCtx.authenticated) {
