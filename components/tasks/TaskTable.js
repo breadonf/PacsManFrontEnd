@@ -55,6 +55,7 @@ const columns = [
     headerName: "Edit",
     width: 150,
     renderCell: (params) => {
+      const editID = ""
       const editHandler = (e) => {
         e.stopPropagation()
       
@@ -65,8 +66,9 @@ const columns = [
         .forEach(
           (c) => (thisRow[c.field] = params.getValue(params.id, c.field))
         );
-        const editID = (params.id)
-        return alert(editID);
+        const editIDs = (params.id)
+        editID = editIDs
+        return alert(editIDs);
       };
       console.log(editID)
       return (
