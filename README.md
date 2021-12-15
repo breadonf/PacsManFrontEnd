@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## PacsMan - Productivity Booster
+Website deployed on url: https://taskmanager-one.vercel.app/
+github repository url: https://github.com/breadonf/PacsManFrontEnd
+
+A React based productivity boost web application.
+
+UI design: Material UI
+https://mui.com/
+
+Routing: Next js
+https://nextjs.org/
+
+Calendar View: React-big-calendar
+https://github.com/jquense/react-big-calendar
 
 ## Getting Started
 
-First, run the development server:
+To install the necessary dependencies:
 
-```bash
+npm install
+
+Run the development server:
+
 npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local testing:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+For API routes:
+backend should also be installed and change the apiUrl inside the frontend files in order to run the website locally.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## testing account:
+username: test
+password: test
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Directory
+file-system based routing:
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes]
