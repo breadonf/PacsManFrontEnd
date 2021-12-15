@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Link from "next/link";
+import Button from "@mui/material/Button"
 // upon clicking on homepage or task table page. the details of the task would be shown here
 
 export default function TaskDetail(props) {
