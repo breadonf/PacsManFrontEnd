@@ -27,7 +27,7 @@ function Login({usernameState, setUsername}) {
             headers: {
               //"Access-Control-Allow-Origin": "http://localhost:3000",
               "Access-Control-Allow-Origin": "https://taskmanager-one.vercel.app/", //prod
-              "Access-Control-Allow-Methods": "POST, PUT, DELETE, GET",
+              "Access-Control-Allow-Methods": "OPTIONS,POST, PUT, DELETE, GET",
             },
           }
         )
