@@ -50,31 +50,7 @@ const columns = [
       );
     },
   },
-  {
-    field: "",
-    headerName: "Edit",
-    width: 150,
-    renderCell: (params) => {
-      const editHandler = (e) => {
-        e.stopPropagation()
-      
-        const api = params.api
-        const thisRow = {};
-        api.getAllColumns()
-        .filter((c) => c.field !== "__check__" && !!c)
-        .forEach(
-          (c) => (thisRow[c.field] = params.getValue(params.id, c.field))
-        );
-        let editID = (params.id)
-        return alert(editID);
-      };
-      return (
-        <Button variant="outlined" onClick={editHandler}>
-          <a href={`/edit/${editID}`}>Edit</a>
-        </Button>
-      );
-    },
-  }
+  
 ];
 
 export default function TaskTable(props) {
