@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-
+import Link from "next/link";
 // upon clicking on homepage or task table page. the details of the task would be shown here
 
 export default function TaskDetail(props) {
@@ -75,10 +75,10 @@ export default function TaskDetail(props) {
             </Grid>
           </Grid>
           <Grid item xs={12} sx={{ pt: 4, pb: 2 }}>
-              <Link href={`/taskEditForm/${props.id}`}>
-                <Button variant="contained">Edit</Button>
-              </Link>
-            </Grid>
+            <Link href={`/taskEditForm/${props.id}`}>
+              <Button variant="contained">Edit</Button>
+            </Link>
+          </Grid>
         </CardContent>
       </Card>
     </Grid>
