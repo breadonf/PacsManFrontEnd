@@ -30,7 +30,7 @@ const TaskItems = (props) => {
         </Grid>
         <Grid item xs={5}>
           <Typography variant="body2">
-            Deadline: {date}
+            Deadline: {(date == "Thu Jan 01 1970") ? null : date}
           </Typography>
         </Grid>
         <Grid item xs={5}>

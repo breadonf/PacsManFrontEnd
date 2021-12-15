@@ -18,7 +18,7 @@ function Form() {
   //}
 
   async function addTaskHandler(enteredTaskData) {
-    console.log(enteredTaskData);
+
     await axios
       .post(apiUrl, { enteredTaskData })
       .then((res, req) => console.log(req))
