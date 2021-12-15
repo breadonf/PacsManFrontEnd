@@ -20,6 +20,7 @@ const fetcher = (url) => axios({ method: "post", url: url });
 };*/
 
 function EditDetails() {
+  const taskId = router.query.taskId;
   const apiUrl =  `https://backend-productivity.herokuapp.com/tasks/api/update-task/${taskId}`;
   const router = useRouter();
   const taskId = router.query.taskId;
@@ -28,7 +29,7 @@ function EditDetails() {
   async function editHandler(enteredEditedTaskData) {
 
     await axios
-      .post(apiUrl, { enteredEditedTaskData })
+      .put(apiUrl, { enteredEditedTaskData })
       .then((res, req) => console.log(res))
       .catch((error) => console.log(error));
   }

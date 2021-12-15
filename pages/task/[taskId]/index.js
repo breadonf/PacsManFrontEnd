@@ -40,7 +40,8 @@ function Details() {
       id={data.data.task._id}
       title={data.data.task.title}
       startDate={data.data.task.startDate}
-      endDate={data.data.task.endData}
+      endDate={data.data.task.endDate}
+      location={data.data.task.location}
       deadline={data.data.task.deadline}
       details={data.data.task.details}
       issuer={data.data.task.issuer}
