@@ -30,7 +30,7 @@ backend should also be installed and change the apiUrl inside the frontend files
 
 ## testing account:
 username: test
-password: test
+password: example
 
 ## Directory
 file-system based routing:
