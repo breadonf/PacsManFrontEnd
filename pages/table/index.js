@@ -15,7 +15,6 @@ function Table() {
 
   if (!data) return <div>Loading</div>;
   else {
-    console.log(data);
     return <TaskTable events={data} />;
   }
 }

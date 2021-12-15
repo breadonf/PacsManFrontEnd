@@ -15,7 +15,6 @@ const fetcher = url => axios({method: "get", url: url}).then(res => res.data.mes
 
 function Calendar() {
   const {data:calendarEvent, error} =useSWR(apiUrl, fetcher)
-  console.log(calendarEvent)
   if (error) {
     console.log(error)
     return <div>Failed to load</div>

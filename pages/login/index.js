@@ -35,7 +35,6 @@ function Login({usernameState, setUsername}) {
           userCtx.login(res.data.user)
           window.localStorage.setItem("userID", res.data.user._id);
           window.localStorage.setItem("username", res.data.user.username);
-          console.log(usernameState)
           setUsername(res.data.user.username)
           router.replace("/");
         });

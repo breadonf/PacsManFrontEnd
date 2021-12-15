@@ -30,9 +30,8 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
-      {console.log(usernameState)}
       <Head>
-        <title>PACMAN</title>
+        <title>PacsMan</title>
       </Head>
       <AppProvider>
         <Layout usernameState={usernameState} setUsername={setUsername}>
